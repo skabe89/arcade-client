@@ -2,8 +2,21 @@ import React, { Component } from 'react'
 import './Room.css'
 import Tile from './Tile'
 import MenuScreen from './MenuScreen'
+import pong from './characters/pong.gif'
+import piano from './characters/piano.gif'
 
 export default class Room extends Component {
+
+  // constructor(){
+  //   super()
+  //   this.state = {
+  //     playerx: 1,
+  //     playery: 1,
+  //     direction: "down"
+  //   }
+  // }
+
+  _isMounted = false
 
   state = {
     playerx: 1,
@@ -12,6 +25,7 @@ export default class Room extends Component {
   }
 
   componentDidMount(){
+    this._isMounted = true
     window.addEventListener('keydown', (e) => {
       console.log(this.state.direction)
       switch(e.key){
@@ -35,6 +49,8 @@ export default class Room extends Component {
             this.setState({playerx: this.state.playerx - 1, direction: "left"})
           }
           break
+        default:
+          return ""
       }
     })
   }
@@ -61,6 +77,10 @@ export default class Room extends Component {
     text: 'Under Construction, try again later!'
   }
 
+  componentWillUnmount(){
+    this._isMounted = false
+  }
+
 
 
   render() {
@@ -71,7 +91,7 @@ export default class Room extends Component {
         {this.playerPosition() === "1-3" ? <MenuScreen option={ this.keyboardOption } /> : ""}
         <Tile tile={"1-4"} playerPosition={this.playerPosition()} />
         <Tile tile={"2-4"} playerPosition={this.playerPosition()} />
-        <Tile tile={"3-4"} playerPosition={this.playerPosition()}/>
+        <Tile tile={"3-4"} playerPosition={this.playerPosition()} image={pong}/>
         <Tile tile={"4-4"} playerPosition={this.playerPosition()}/>
         <Tile tile={"5-4"} playerPosition={this.playerPosition()}/>
         <Tile tile={"6-4"} playerPosition={this.playerPosition()}/>
@@ -79,7 +99,7 @@ export default class Room extends Component {
         <Tile tile={"8-4"} playerPosition={this.playerPosition()}/>
         <Tile tile={"9-4"} playerPosition={this.playerPosition()}/>
         <Tile tile={"10-4"} playerPosition={this.playerPosition()}/>
-        <Tile tile={"1-3"} playerPosition={this.playerPosition()}/>
+        <Tile tile={"1-3"} playerPosition={this.playerPosition()} image={piano}/>
         <Tile tile={"2-3"} playerPosition={this.playerPosition()}/>
         <Tile tile={"3-3"} playerPosition={this.playerPosition()}/>
         <Tile tile={"4-3"} playerPosition={this.playerPosition()}/>

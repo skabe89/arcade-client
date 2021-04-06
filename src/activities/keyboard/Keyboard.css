@@ -1,0 +1,259 @@
+/* keyboard Styles */
+
+.keyboard{
+  background-color: #282c34;
+  margin: auto;
+  position: relative;
+  width: 1370px;
+  height: 500px;
+  border-radius: 5px;
+}
+
+.c{
+  background-color: #e7e9e7;
+  z-index: 1;
+  position: absolute;
+  float: left;
+  width: 180px;
+  height: 480px;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5px;
+  left: 5px;
+}
+
+.c:hover{
+  background-color: #b8bdbe;
+}
+
+.c:active{
+  background-color: aqua;
+}
+
+
+.cSharp{
+  background-color: #080808;
+  z-index: 2;
+  float: left;
+  position: absolute;
+  width: 90px;
+  height: 240px;
+  left: 155px;
+  top: 5px;
+  border-radius: 5px;
+}
+
+.cSharp:hover{
+  background-color: #353434;
+}
+
+.cSharp:active{
+  background-color: #283593;
+}
+
+.d{
+  background-color: #e7e9e7;
+  position: absolute;
+  z-index: 1;
+  float: left;
+  width: 180px;
+  height: 480px;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5px;
+  left: 200px;
+}
+
+.d:hover{
+  background-color: #b8bdbe;
+}
+
+.d:active{
+  background-color: aqua;
+}
+
+
+.dSharp{
+  background-color: #080808;
+  z-index: 2;
+  float: left;
+  position: absolute;
+  width: 90px;
+  height: 240px;
+  left: 350px;
+  top: 5px;
+  border-radius: 5px;
+}
+
+.dSharp:hover{
+  background-color: #353434;
+}
+
+.dSharp:active{
+  background-color: #283593;
+}
+
+.e{
+  background-color: #e7e9e7;
+  position: absolute;
+  float: left;
+  width: 180px;
+  height: 480px;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5px;
+  left: 395px;
+}
+
+.e:hover{
+  background-color: #b8bdbe;
+}
+
+.e:active{
+  background-color: #283593;
+}
+
+
+.f{
+  background-color: #e7e9e7;
+  position: absolute;
+  float: left;
+  width: 180px;
+  height: 480px;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5px;
+  left: 590px;
+}
+
+.f:hover{
+  background-color: #b8bdbe;
+}
+
+.f:active{
+  background-color: aqua;
+}
+
+
+.fSharp{
+  background-color: #080808;
+  z-index: 2;
+  float: left;
+  position: absolute;
+  width: 90px;
+  height: 240px;
+  left: 740px;
+  top: 5px;
+  border-radius: 5px;
+}
+
+.fSharp:hover{
+  background-color: #353434;
+}
+
+.fSharp:active{
+  background-color: #283593;
+}
+
+.g{
+  background-color: #e7e9e7;
+  position: absolute;
+  float: left;
+  width: 180px;
+  height: 480px;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5px;
+  left: 785px;
+}
+
+.g:hover{
+  background-color: #b8bdbe;
+}
+
+.g:active{
+  background-color: aqua;
+}
+
+
+.gSharp{
+  background-color: #080808;
+  z-index: 2;
+  float: left;
+  position: absolute;
+  width: 90px;
+  height: 240px;
+  left: 935px;
+  top: 5px;
+  border-radius: 5px;
+}
+
+.gSharp:hover{
+  background-color: #353434;
+}
+
+.gSharp:active{
+  background-color: #283593;
+}
+
+.a{
+  background-color: #e7e9e7;
+  position: absolute;
+  float: left;
+  width: 180px;
+  height: 480px;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5px;
+  left: 980px;
+}
+
+.a:hover{
+  background-color: #b8bdbe;
+}
+
+.a:active{
+  background-color: aqua;
+}
+
+
+.aSharp{
+  background-color: #080808;
+  z-index: 2;
+  float: left;
+  position: absolute;
+  width: 90px;
+  height: 240px;
+  left: 1130px;
+  top: 5px;
+  border-radius: 5px;
+}
+
+.aSharp:hover{
+  background-color: #353434;
+}
+
+.aSharp:active{
+  background-color: #283593;
+}
+
+.b{
+  background-color: #e7e9e7;
+  position: absolute;
+  float: left;
+  width: 180px;
+  height: 480px;
+  padding: 5px;
+  border-radius: 5px;
+  bottom: 5px;
+  left: 1175px;
+}
+
+.b:hover{
+  background-color: #b8bdbe;
+}
+
+.b:active{
+  background-color: aqua;
+}
+

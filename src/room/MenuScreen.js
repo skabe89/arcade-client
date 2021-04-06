@@ -8,7 +8,7 @@ export default function MenuScreen(props) {
     <div className='menu'>
       <h1> {props.option.name} </h1>
     
-      {/* <Link to={props.option.link}>{props.option.text}</Link> */}
+      <Link to={props.option.link}>{props.option.text}</Link>
     </div>
   )
 }

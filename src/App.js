@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Room from './room/Room'
 import Home from  './Home'
+import Keyboard from './activities/keyboard/KeyboardContainer'
 
 function App() {
   return (
@@ -16,6 +17,9 @@ function App() {
           <li>
             <Link to="/room">Room</Link>
           </li>
+          <li>
+            <Link to="/keyboard">Keyboard</Link>
+          </li>
         </ul>
       </nav>
 
@@ -25,6 +29,9 @@ function App() {
         </Route>
         <Route exact path="/room">
           <Room />
+        </Route>
+        <Route exact path="/keyboard">
+          <Keyboard />
         </Route>
       </Switch>
     </div>
