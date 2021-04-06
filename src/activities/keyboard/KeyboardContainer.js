@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Howl, Howler} from 'howler';
 import BlackKey from './BlackKey'
 import Key from './Key'
 import './Keyboard.css'
@@ -7,64 +8,81 @@ export default class KeyboardContainer extends Component {
 
 state = {
   loop: ""
+  //soundLibrary: this.presetOne
 }
+
+// presetOne = {c: "whatever", playc: playAudio(file")}
+// presetTwo = {c: "word?"}
+
+// handleSoundSelect = (e) => {
+//   this.setState(soundLibrary: e.target)
+// }
+
+// playAudio(){
+  
+// }
 
 pressed = ""
 
+aNote = new Howl({
+  src: ['http://large.stanford.edu/courses/2007/ph210/otey2/wav/a3.wav']
+})
+
  keyPress = (note) => {
    switch(note){
-    case "c":
-      console.log("this is the c note")
-      this.pressed = note
-      console.log(this.pressed)
-      return null
-    case "cSharp":
-      console.log("this is the cSharp note")
-      this.pressed = note
-      console.log(this.pressed)
-      return ""
-    case "d":
-      console.log("this is the d note")
-      this.pressed = note
-      return ""
-    case "dSharp":
-      console.log("this is the dSharp note")
-      this.pressed = note
-      return ""
-    case "e":
-      console.log("this is the e note")
-      this.pressed = note
-      return ""
-    case "f":
-      console.log("this is the f note")
-      this.pressed = note
-      return ""
-    case "fSharp":
-      console.log("this is the fSharp note")
-      this.pressed = note
-      return ""
-    case "g":
-      console.log("this is the g note")
-      this.pressed = note
-      return ""
-    case "gSharp":
-      console.log("this is the gSharp note")
-      this.pressed = note
-      return ""
-    case "a":
-      console.log("this is the a note")
-      this.pressed = note
-      return ""
-    case "aSharp":
-      console.log("this is the aSharp note")
-      this.pressed = note
-      return ""
-    case "b":
-      console.log("this is the b note")
-      this.pressed = note
-      return ""
-    default:
-      return ""
+      case "c":
+        console.log("this is the c note")
+        this.pressed = note
+        console.log(this.pressed)
+        return null
+      case "cSharp":
+        console.log("this is the cSharp note")
+        this.pressed = note
+        console.log(this.pressed)
+        return ""
+      case "d":
+        console.log("this is the d note")
+        this.pressed = note
+        return ""
+      case "dSharp":
+        console.log("this is the dSharp note")
+        this.pressed = note
+        return ""
+      case "e":
+        console.log("this is the e note")
+        this.pressed = note
+        return ""
+      case "f":
+        console.log("this is the f note")
+        this.pressed = note
+        return ""
+      case "fSharp":
+        console.log("this is the fSharp note")
+        this.pressed = note
+        return ""
+      case "g":
+        console.log("this is the g note")
+        this.pressed = note
+        return ""
+      case "gSharp":
+        console.log("this is the gSharp note")
+        this.pressed = note
+        return ""
+      case "a":
+        console.log("this is the a note")
+        this.pressed = note
+        this.aNote.play()
+        return ""
+      case "aSharp":
+        console.log("this is the aSharp note")
+        this.pressed = note
+        return ""
+      case "b":
+        console.log("this is the b note")
+        this.pressed = note
+        return ""
+      default:
+        return ""
    }
  }
 

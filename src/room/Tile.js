@@ -16,12 +16,12 @@ export default class Tile extends Component {
     // console.log(this.props)
     if(this.renderPlayer()){
       return (
-        <div className="tile" id="character"><img src={slug}/></div>
+        <div className="tile" id="character"><img src={this.props.character}/></div>
       )
     }
     else if(this.props.image){
       return(
-        <div className="tile" ><img src={this.props.image}/></div>
+        <div className="tile" style={{backgroundImage: `url(${this.props.image})`}}></div>
       )
     }
     else{

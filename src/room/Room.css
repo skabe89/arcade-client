@@ -2,14 +2,14 @@
   margin: auto;
   z-index: 1;
   background-color: rgb(115, 163, 224);
-  grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto;
   display: grid;
   height: 240px;
-  width: 600px;
+  width: 540px;
 }
 
 .tile{
-  background-color: burlywood;
+  background-color: rgb(204, 202, 200);
   height: 60px;
   width: 60px;
   border-radius: 5px;
@@ -26,6 +26,6 @@
   opacity: 0.8;
 }
 
-#character{
+/* #character{
   background-image: ;
-}
+} */
