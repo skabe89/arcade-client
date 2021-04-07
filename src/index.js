@@ -3,10 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { Provider } from 'react-redux'
+import { applyMiddleware, createStore } from 'redux'
+
+const walmart = createStore(() => {})
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={walmart}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

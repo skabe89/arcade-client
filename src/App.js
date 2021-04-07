@@ -2,7 +2,7 @@
 import './App.css';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Room from './room/Room'
-import Home from  './Home'
+import Home from  './Home/Home'
 import Keyboard from './activities/keyboard/KeyboardContainer'
 // import Matrix from './activities/matrix/Matrix'
 

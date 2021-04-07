@@ -6,6 +6,7 @@ import Key from './Key'
 import './Keyboard.css'
 import BassPluck from './sounds/bassPluck'
 import Piano from './sounds/piano'
+import { render } from 'react-dom'
 
 
 

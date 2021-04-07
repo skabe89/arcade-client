@@ -4,8 +4,8 @@
   background-color: #282c34;
   margin: auto;
   position: relative;
-  width: 1370px;
-  height: 500px;
+  width: 810px;
+  height: 400px;
   border-radius: 3px;
 }
 
@@ -13,7 +13,7 @@
   margin: auto;
   position: relative;
   background-color: #283593;
-  width: 1370px;
+  width: 810px;
   height: 200px;
   border-radius: 3px
 }
@@ -28,11 +28,12 @@
   left: 40px;
 }
 
+.recordB:hover{
+  background-color: rgb(187, 9, 9);
+}
+
 .recordB:active{
   background-color: rgb(238, 14, 14);
-  height: 80px;
-  width: 80px;
-  border-radius: 40px;
 }
 
 .stopRecord{
@@ -42,6 +43,14 @@
   width: 80px;
   top: 40px;
   left: 200px;
+}
+
+.stopRecord:hover{
+  background-color: rgb(43, 42, 42);
+}
+
+.stopRecord:active{
+  background-color: rgb(100, 100, 100);
 }
 
 .playback{
@@ -54,13 +63,21 @@
   left: 400px;
 }
 
+.playback:hover{
+  background-color: rgb(214, 208, 208);
+}
+
+.playback:active{
+  background-color: rgb(14, 216, 81); 
+}
+
 .c{
   background-color: #e7e9e7;
   z-index: 1;
   position: absolute;
   float: left;
-  width: 180px;
-  height: 480px;
+  width: 100px;
+  height: 380px;
   padding: 5px;
   border-radius: 5px;
   bottom: 5px;
@@ -81,9 +98,9 @@
   z-index: 2;
   float: left;
   position: absolute;
-  width: 90px;
-  height: 240px;
-  left: 155px;
+  width: 70px;
+  height: 210px;
+  left: 80px;
   top: 5px;
   border-radius: 5px;
 }
@@ -101,12 +118,12 @@
   position: absolute;
   z-index: 1;
   float: left;
-  width: 180px;
-  height: 480px;
+  width: 100px;
+  height: 380px;
   padding: 5px;
   border-radius: 5px;
   bottom: 5px;
-  left: 200px;
+  left: 120px;
 }
 
 .d:hover{
@@ -123,9 +140,9 @@
   z-index: 2;
   float: left;
   position: absolute;
-  width: 90px;
-  height: 240px;
-  left: 350px;
+  width: 70px;
+  height: 210px;
+  left: 200px;
   top: 5px;
   border-radius: 5px;
 }
@@ -142,12 +159,12 @@
   background-color: #e7e9e7;
   position: absolute;
   float: left;
-  width: 180px;
-  height: 480px;
+  width: 100px;
+  height: 380px;
   padding: 5px;
   border-radius: 5px;
   bottom: 5px;
-  left: 395px;
+  left: 235px;
 }
 
 .e:hover{
@@ -163,12 +180,12 @@
   background-color: #e7e9e7;
   position: absolute;
   float: left;
-  width: 180px;
-  height: 480px;
+  width: 100px;
+  height: 380px;
   padding: 5px;
   border-radius: 5px;
   bottom: 5px;
-  left: 590px;
+  left: 350px;
 }
 
 .f:hover{
@@ -185,9 +202,9 @@
   z-index: 2;
   float: left;
   position: absolute;
-  width: 90px;
-  height: 240px;
-  left: 740px;
+  width: 70px;
+  height: 210px;
+  left: 430px;
   top: 5px;
   border-radius: 5px;
 }
@@ -204,12 +221,12 @@
   background-color: #e7e9e7;
   position: absolute;
   float: left;
-  width: 180px;
-  height: 480px;
+  width: 100px;
+  height: 380px;
   padding: 5px;
   border-radius: 5px;
   bottom: 5px;
-  left: 785px;
+  left: 465px;
 }
 
 .g:hover{
@@ -226,9 +243,9 @@
   z-index: 2;
   float: left;
   position: absolute;
-  width: 90px;
-  height: 240px;
-  left: 935px;
+  width: 70px;
+  height: 210px;
+  left: 545px;
   top: 5px;
   border-radius: 5px;
 }
@@ -245,12 +262,12 @@
   background-color: #e7e9e7;
   position: absolute;
   float: left;
-  width: 180px;
-  height: 480px;
+  width: 100px;
+  height: 380px;
   padding: 5px;
   border-radius: 5px;
   bottom: 5px;
-  left: 980px;
+  left: 580px;
 }
 
 .a:hover{
@@ -267,9 +284,9 @@
   z-index: 2;
   float: left;
   position: absolute;
-  width: 90px;
-  height: 240px;
-  left: 1130px;
+  width: 70px;
+  height: 210px;
+  left: 660px;
   top: 5px;
   border-radius: 5px;
 }
@@ -286,12 +303,12 @@
   background-color: #e7e9e7;
   position: absolute;
   float: left;
-  width: 180px;
-  height: 480px;
+  width: 100px;
+  height: 380px;
   padding: 5px;
   border-radius: 5px;
   bottom: 5px;
-  left: 1175px;
+  left: 695px;
 }
 
 .b:hover{
