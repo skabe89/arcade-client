@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
+// import { addMovie } from '../actions'
+import { connect } from 'react-redux'
 
-export default class Form extends Component {
+class Form extends Component {
 
   state = {
     name: "",
@@ -14,13 +16,13 @@ export default class Form extends Component {
   handleSubmit = (e) => {
     console.log(e)
     e.preventDefault()
-    //set redux store state for name
-    console.log(this.state)
+    this.props.setName(this.state.name)
+    // console.log(this.state)
   }
 
   resetName = () => {
     this.setState({name: ""})
-    console.log(this.state)
+    // console.log(this.state)
   }
 
   render() {
@@ -34,7 +36,22 @@ export default class Form extends Component {
             <input type="submit" value="Confirm Name" />
         </form>
         <button onClick={ this.resetName }>Reset Name to ""</button>
+        <h1>{this.props.name}</h1>
       </div>
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return{
+    name: state.name
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return{
+    setName: (name) => dispatch({type: "SET_NAME", payload: name})
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form)

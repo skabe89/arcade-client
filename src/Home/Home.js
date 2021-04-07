@@ -1,5 +1,6 @@
 import React from 'react'
 import Form from './Form'
+import { connect } from 'react-redux'
 
 export default function Home() {
   return (

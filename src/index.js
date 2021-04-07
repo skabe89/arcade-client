@@ -5,8 +5,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
+import userReducer from './reducers/userReducer';
 
-const walmart = createStore(() => {})
+const walmart = createStore(userReducer)
 
 ReactDOM.render(
   <React.StrictMode>
