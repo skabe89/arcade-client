@@ -151,8 +151,9 @@ playNote(note){
   recording = false
   
   startRecording = () => {
-    if (this.recording === false){
+    if (this.recording === false && this.currrentlyPlaying === false){
       this.recording = true
+      this.pressed = ""
       let recordLoop = []
 
       this.intervalId = setInterval(() => {
@@ -171,7 +172,10 @@ playNote(note){
 
   stopRecording = () => {
     clearInterval(this.intervalId)
+    this.pressed = ""
   }
+
+  currrentlyPlaying = false
 
   playback = () => {
     for(let i = 0; i < this.state.loop.length; i++){
@@ -180,6 +184,7 @@ playNote(note){
         if(this.state.loop[i] !== ""){
           this.playNote(this.state.loop[i])
         }
+        console.log(this.currrentlyPlaying)
       }, i * 50)
     }
     console.log(this.state.loop)

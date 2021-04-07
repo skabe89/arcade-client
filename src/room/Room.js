@@ -71,6 +71,7 @@ export default class Room extends Component {
     })
   }
 
+
   playerPosition = () => {
     return `${this.state.playerx}-${this.state.playery}`
   }
