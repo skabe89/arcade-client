@@ -12,8 +12,9 @@ import rightArrow from './characters/rightArrow.png'
 import leftDesk from './characters/ldesk.png'
 import rightDesk from './characters/rdesk.png'
 import Enoch from './characters/enochRevised.gif'
+import { connect } from 'react-redux'
 
-export default class Room extends Component {
+class Room extends Component {
 
   _isMounted = false
 
@@ -34,6 +35,7 @@ export default class Room extends Component {
 
   componentDidMount(){
     this._isMounted = true
+    this.playback()
     window.addEventListener('keydown', (e) => {
       switch(e.key){
         case "w":
@@ -92,11 +94,26 @@ export default class Room extends Component {
     name: "talk to enoch",
     link: '/arcade',
     text: 'Under Construction, try again later!',
-
   }
 
   componentWillUnmount(){
     this._isMounted = false
+  }
+
+  //themeSong logic
+  playNote(note){
+    note.play()
+  }
+
+  playback = () => {
+    for(let i = 0; i < this.props.themeSong.length; i++){
+      setTimeout(() => {
+        console.log(this.props.themeSong[i])
+        if(this.props.themeSong[i] !== ""){
+          this.playNote(this.props.themeSong[i])
+        }
+      }, i * 50)
+    }
   }
 
 
@@ -151,3 +168,12 @@ export default class Room extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    name: state.name,
+    themeSong: state.themeSong
+  }
+}
+
+export default connect(mapStateToProps)(Room)

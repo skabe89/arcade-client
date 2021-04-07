@@ -7,10 +7,11 @@ import './Keyboard.css'
 import BassPluck from './sounds/bassPluck'
 import Piano from './sounds/piano'
 import { render } from 'react-dom'
+import { connect } from 'react-redux'
 
 
 
-export default class KeyboardContainer extends Component {
+class KeyboardContainer extends Component {
 
 state = {
   loop: [],
@@ -152,6 +153,10 @@ playNote(note){
     this.stopRecording()
   }
 
+  setAsTheme = () => {
+    this.props.setAsTheme(this.state.loop)
+  }
+
 
 
   render() {
@@ -179,8 +184,15 @@ playNote(note){
         <button onClick={this.startRecording}>Record</button>
         <button onClick={this.stopRecording}>Stop</button>
         <button onClick={this.playback}>Play Back Recording</button>
-        <button onClick={this.toggleSounds}>Switch Sound</button> 
+        <button onClick={this.toggleSounds}>Switch Sound</button>
+        <button onClick={this.setAsTheme}>Set as your Theme Chime</button> 
       </div>
     )
   }
 }
+
+const mapDispatchToProps = (dispatch) => {
+  return { setAsTheme: (loop) => dispatch({type: 'SET_THEME_SONG', payload: loop})}
+}
+
+export default connect(null, mapDispatchToProps)(KeyboardContainer)

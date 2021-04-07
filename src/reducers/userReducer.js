@@ -13,6 +13,12 @@ const userReducer = (state = initialState, action) => {
         ...state,
         name: action.payload
       }
+    case 'SET_THEME_SONG':
+      console.log(state)
+      return {
+        ...state,
+        themeSong: action.payload
+      }
     default:
       return state
   }
