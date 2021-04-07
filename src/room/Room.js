@@ -5,13 +5,13 @@ import MenuScreen from './MenuScreen'
 import pong from './characters/pong.gif'
 import piano from './characters/piano.gif'
 import tileFloor from './characters/tileFloor.png'
-import upArrow from './characters/upArrow.png'
+import upArrow from './characters/upArrow-90x90.png'
 import leftArrow from './characters/leftArrow.png'
 import downArrow from './characters/downArrow.png'
 import rightArrow from './characters/rightArrow.png'
-import leftDesk from './characters/leftDesk.png'
-import rightDesk from './characters/rightDesk.png'
-import Enoch from './characters/Enoch.gif'
+import leftDesk from './characters/ldesk.png'
+import rightDesk from './characters/rdesk.png'
+import Enoch from './characters/enochRevised.gif'
 
 export default class Room extends Component {
 
