@@ -6,7 +6,52 @@
   position: relative;
   width: 1370px;
   height: 500px;
-  border-radius: 5px;
+  border-radius: 3px;
+}
+
+.KeyController{
+  margin: auto;
+  position: relative;
+  background-color: #283593;
+  width: 1370px;
+  height: 200px;
+  border-radius: 3px
+}
+
+.recordB{
+  position: absolute;
+  background-color: rgb(146, 7, 7);
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  top: 40px;
+  left: 40px;
+}
+
+.recordB:active{
+  background-color: rgb(238, 14, 14);
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+}
+
+.stopRecord{
+  position: absolute;
+  background-color: rgb(2, 2, 2);
+  height: 80px;
+  width: 80px;
+  top: 40px;
+  left: 200px;
+}
+
+.playback{
+  position: absolute;
+  background-color: rgb(172, 167, 167);
+  height: 80px;
+  width: 120px;
+  border-radius: 40px;
+  top: 40px;
+  left: 400px;
 }
 
 .c{

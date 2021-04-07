@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import {Howl, Howler} from 'howler';
+import KeyController from './KeyboardControls'
+// import {Howl, Howler} from 'howler';
 import BlackKey from './BlackKey'
 import Key from './Key'
 import './Keyboard.css'
@@ -12,7 +13,7 @@ export default class KeyboardContainer extends Component {
 
 state = {
   loop: [],
-  sounds: Piano()
+  sounds: BassPluck()
 }
 
 
@@ -32,64 +33,64 @@ playNote(note){
  keyPress = (note) => {
    switch(note){
       case "c":
-        console.log("this is the c note")
+        // console.log("this is the c note")
         this.pressed = this.state.sounds.cNote
         this.playNote(this.state.sounds.cNote)
-        console.log(this.pressed)
+        // console.log(this.pressed)
         return null
       case "cSharp":
         console.log("this is the cSharp note")
         this.pressed = this.state.sounds.cSharp
         this.playNote(this.state.sounds.cSharp)
-        console.log(this.pressed)
+        // console.log(this.pressed)
         return ""
       case "d":
-        console.log("this is the d note")
+        // console.log("this is the d note")
         this.pressed = this.state.sounds.dNote
         this.playNote(this.state.sounds.dNote)
         return ""
       case "dSharp":
-        console.log("this is the dSharp note")
+        // console.log("this is the dSharp note")
         this.pressed = this.state.sounds.dSharp
         this.playNote(this.state.sounds.dSharp)
         return ""
       case "e":
-        console.log("this is the e note")
+        // console.log("this is the e note")
         this.pressed = this.state.sounds.eNote
         this.playNote(this.state.sounds.eNote)
         return ""
       case "f":
-        console.log("this is the f note")
+        // console.log("this is the f note")
         this.pressed = this.state.sounds.fNote
         this.playNote(this.state.sounds.fNote)
         return ""
       case "fSharp":
-        console.log("this is the fSharp note")
+        // console.log("this is the fSharp note")
         this.pressed = this.state.sounds.fSharp
         this.playNote(this.state.sounds.fSharp)
         return ""
       case "g":
-        console.log("this is the g note")
+        // console.log("this is the g note")
         this.pressed = this.state.sounds.gNote
         this.playNote(this.state.sounds.gNote)
         return ""
       case "gSharp":
-        console.log("this is the gSharp note")
+        // console.log("this is the gSharp note")
         this.pressed = this.state.sounds.gSharp
         this.playNote(this.state.sounds.gSharp)
         return ""
       case "a":
-        console.log("this is the a note")
+        // console.log("this is the a note")
         this.pressed = this.state.sounds.aNote
         this.playNote(this.state.sounds.aNote)
         return ""
       case "aSharp":
-        console.log("this is the aSharp note")
+        // console.log("this is the aSharp note")
         this.pressed = this.state.sounds.aSharp
         this.playNote(this.state.sounds.aSharp)
         return ""
       case "b":
-        console.log("this is the b note")
+        // console.log("this is the b note")
         this.pressed = this.state.sounds.bNote
         this.playNote(this.state.sounds.bNote)
         return ""
@@ -159,7 +160,8 @@ playNote(note){
     console.log(this.state.sounds)
     return (
       <div>
-        <div className="keyboard">
+        <KeyController record={this.startRecording} stopRecord={this.stopRecording} playback={this.playback}/>
+        <div className="keyboard" >
             <Key keyPress={this.keyPress} note="c"/>
             <BlackKey keyPress={this.keyPress} note="cSharp" /> 
             <Key keyPress={this.keyPress} note="d"/> 
