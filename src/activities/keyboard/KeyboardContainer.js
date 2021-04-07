@@ -3,77 +3,27 @@ import {Howl, Howler} from 'howler';
 import BlackKey from './BlackKey'
 import Key from './Key'
 import './Keyboard.css'
-import Sounds from './sounds/sounds'
-import A from './sounds/A.mp3'
-import ASharp from './sounds/ASharp.mp3'
-import B from './sounds/B.mp3'
-import C from './sounds/C.mp3'
-import CSharp from './sounds/CSharp.mp3'
-import D from './sounds/D.mp3'
-import DSharp from './sounds/DSharp.mp3'
-import E from './sounds/E.mp3'
-import F from './sounds/F.mp3'
-import FSharp from './sounds/FSharp.mp3'
-import G from './sounds/G.mp3'
-import GSharp from './sounds/GSharp.mp3'
+import BassPluck from './sounds/bassPluck'
+import Piano from './sounds/piano'
+
 
 
 export default class KeyboardContainer extends Component {
 
 state = {
-  loop: ""
-  //soundLibrary: this.presetOne
+  loop: [],
+  sounds: Piano()
 }
 
-// presetOne = {c: "whatever", playc: playAudio(file")}
-// presetTwo = {c: "word?"}
 
 // handleSoundSelect = (e) => {
 //   this.setState(soundLibrary: e.target)
 // }
 
-// playAudio(){
-  
-// }
+
 
 pressed = ""
 
-cNote = new Howl({
-  src: [C]
-})
-cSharp = new Howl({
-  src: [CSharp]
-})
-dNote = new Howl({
-  src: [D]
-})
-dSharp = new Howl({
-  src: [DSharp]
-})
-eNote = new Howl({
-  src: [E]
-})
-fNote = new Howl({
-  src: [F]
-})
-fSharp = new Howl({
-  src: [FSharp]
-})
-gNote = new Howl({
-  src: [G]
-})
-gSharp = new Howl({
-  src: [GSharp]
-})
-aNote = new Howl({
-  src: [A]
-})
-aSharp = new Howl({
-  src: [ASharp]
-})
-bNote = new Howl({
-  src: [B]
-})
 
 playNote(note){
   note.play()
@@ -83,65 +33,65 @@ playNote(note){
    switch(note){
       case "c":
         console.log("this is the c note")
-        this.pressed = this.cNote
-        this.playNote(this.cNote)
+        this.pressed = this.state.sounds.cNote
+        this.playNote(this.state.sounds.cNote)
         console.log(this.pressed)
         return null
       case "cSharp":
         console.log("this is the cSharp note")
-        this.pressed = this.cSharp
-        this.cSharp.play()
+        this.pressed = this.state.sounds.cSharp
+        this.playNote(this.state.sounds.cSharp)
         console.log(this.pressed)
         return ""
       case "d":
         console.log("this is the d note")
-        this.pressed = this.dNote
-        this.dNote.play()
+        this.pressed = this.state.sounds.dNote
+        this.playNote(this.state.sounds.dNote)
         return ""
       case "dSharp":
         console.log("this is the dSharp note")
-        this.pressed = this.dSharp
-        this.dSharp.play()
+        this.pressed = this.state.sounds.dSharp
+        this.playNote(this.state.sounds.dSharp)
         return ""
       case "e":
         console.log("this is the e note")
-        this.pressed = this.eNote
-        this.eNote.play()
+        this.pressed = this.state.sounds.eNote
+        this.playNote(this.state.sounds.eNote)
         return ""
       case "f":
         console.log("this is the f note")
-        this.pressed = this.fNote
-        this.fNote.play()
+        this.pressed = this.state.sounds.fNote
+        this.playNote(this.state.sounds.fNote)
         return ""
       case "fSharp":
         console.log("this is the fSharp note")
-        this.pressed = this.fSharp
-        this.fSharp.play()
+        this.pressed = this.state.sounds.fSharp
+        this.playNote(this.state.sounds.fSharp)
         return ""
       case "g":
         console.log("this is the g note")
-        this.pressed = this.gNote
-        this.gNote.play()
+        this.pressed = this.state.sounds.gNote
+        this.playNote(this.state.sounds.gNote)
         return ""
       case "gSharp":
         console.log("this is the gSharp note")
-        this.gSharp.play()
-        this.pressed = this.gSharp
+        this.pressed = this.state.sounds.gSharp
+        this.playNote(this.state.sounds.gSharp)
         return ""
       case "a":
         console.log("this is the a note")
-        this.pressed = this.aNote
-        this.aNote.play()
+        this.pressed = this.state.sounds.aNote
+        this.playNote(this.state.sounds.aNote)
         return ""
       case "aSharp":
         console.log("this is the aSharp note")
-        this.pressed = this.aSharp
-        this.aSharp.play()
+        this.pressed = this.state.sounds.aSharp
+        this.playNote(this.state.sounds.aSharp)
         return ""
       case "b":
         console.log("this is the b note")
-        this.pressed = this.bNote
-        this.bNote.play()
+        this.pressed = this.state.sounds.bNote
+        this.playNote(this.state.sounds.bNote)
         return ""
       default:
         return ""
@@ -151,7 +101,7 @@ playNote(note){
   recording = false
   
   startRecording = () => {
-    if (this.recording === false && this.currrentlyPlaying === false){
+    if(this.recording === false){
       this.recording = true
       this.pressed = ""
       let recordLoop = []
@@ -177,8 +127,13 @@ playNote(note){
 
   currrentlyPlaying = false
 
+  toggleCurrentlyPlayingOff = () => {
+    this.currrentlyPlaying = false
+  }
+
   playback = () => {
     for(let i = 0; i < this.state.loop.length; i++){
+      this.currrentlyPlaying = true
       setTimeout(() => {
         console.log(this.state.loop[i])
         if(this.state.loop[i] !== ""){
@@ -188,6 +143,7 @@ playNote(note){
       }, i * 50)
     }
     console.log(this.state.loop)
+    // this.toggleCurrentlyPlayingOff()
   }
 
   componentWillUnmount(){
@@ -195,11 +151,12 @@ playNote(note){
   }
 
 
+
   render() {
     console.log("refresh")
     console.log(this.state)
     console.log(this.pressed)
-    // console.log(Sounds)
+    console.log(this.state.sounds)
     return (
       <div>
         <div className="keyboard">
@@ -218,7 +175,8 @@ playNote(note){
         </div>
         <button onClick={this.startRecording}>Record</button>
         <button onClick={this.stopRecording}>Stop</button>
-        <button onClick={this.playback}>Play Back Recording</button> 
+        <button onClick={this.playback}>Play Back Recording</button>
+        <button onClick={this.toggleSounds}>Switch Sound</button> 
       </div>
     )
   }

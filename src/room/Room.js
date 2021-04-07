@@ -104,7 +104,7 @@ export default class Room extends Component {
   render() {
     return (
       <div className="tileContainer">
-        {this.playerPosition() === "5-3sw" ? <MenuScreen option={this.EnochOption}/> : ""}
+        {this.playerPosition() === "5-3" ? <MenuScreen option={this.EnochOption}/> : ""}
         {this.playerPosition() === "3-4" ? <MenuScreen option={ this.laserOption }/> : ""}
         {this.playerPosition() === "1-3" ? <MenuScreen option={ this.keyboardOption } /> : ""}
         <Tile tile={"1-4, decor"} playerPosition={this.playerPosition()} image={""}/>
