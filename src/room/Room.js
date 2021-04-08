@@ -4,7 +4,7 @@ import Tile from './Tile'
 import MenuScreen from './MenuScreen'
 import pong from './characters/pong.gif'
 import piano from './characters/piano.gif'
-import tileFloor from './characters/tileFloor.png'
+import bounce from './characters/bounce.gif'
 import upArrow from './characters/upArrow-90x90.png'
 import leftArrow from './characters/leftArrow.png'
 import downArrow from './characters/downArrow.png'
@@ -74,6 +74,7 @@ class Room extends Component {
   }
 
 
+
   playerPosition = () => {
     return `${this.state.playerx}-${this.state.playery}`
   }
@@ -84,20 +85,22 @@ class Room extends Component {
     text: "Play Your KeyBoard!"
   }
 
-  laserOption = {
-    name: "Laser Time!",
-    link: '/board',
-    text: 'Play Laser Time!'
+  bounceOption = {
+    name: "Bounce!!!",
+    link: '/bounce',
+    text: 'Play Bounce!'
   }
 
   EnochOption = {
     name: "talk to enoch",
     link: '/arcade',
     text: 'Under Construction, try again later!',
+    user: this.props.name
   }
 
   componentWillUnmount(){
     this._isMounted = false
+    window.removeEventListener('keydown', (e) => {})
   }
 
   //themeSong logic
@@ -122,11 +125,11 @@ class Room extends Component {
     return (
       <div className="tileContainer">
         {this.playerPosition() === "5-3" ? <MenuScreen option={this.EnochOption}/> : ""}
-        {this.playerPosition() === "3-4" ? <MenuScreen option={ this.laserOption }/> : ""}
+        {this.playerPosition() === "3-4" ? <MenuScreen option={ this.bounceOption }/> : ""}
         {this.playerPosition() === "1-3" ? <MenuScreen option={ this.keyboardOption } /> : ""}
         <Tile tile={"1-4, decor"} playerPosition={this.playerPosition()} image={""}/>
         <Tile tile={"2-4"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
-        <Tile tile={"3-4"} playerPosition={this.playerPosition()} image={pong}/>
+        <Tile tile={"3-4"} playerPosition={this.playerPosition()} image={bounce}/>
         <Tile tile={"4-4, desk"} playerPosition={this.playerPosition()} image={leftDesk} character={this.state.characterImage}/>
         <Tile tile={"5-4, desk"} playerPosition={this.playerPosition()} image={Enoch} character={this.state.characterImage}/>
         <Tile tile={"6-4, desk"} playerPosition={this.playerPosition()} image={rightDesk} character={this.state.characterImage}/>

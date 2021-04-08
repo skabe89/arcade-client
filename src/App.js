@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Room from './room/Room'
 import Home from  './Home/Home'
 import Keyboard from './activities/keyboard/KeyboardContainer'
-// import Matrix from './activities/matrix/Matrix'
+import Bounce from './activities/bounce/Bounce'
 
 function App() {
   return (
@@ -21,9 +21,9 @@ function App() {
           <li>
             <Link to="/keyboard">Keyboard</Link>
           </li>
-          {/* <li>
-            <Link to="/matrix">Matrix</Link>
-          </li> */}
+          <li>
+            <Link to="/bounce">Bounce</Link>
+          </li>
         </ul>
       </nav>
 
@@ -37,9 +37,9 @@ function App() {
         <Route exact path="/keyboard">
           <Keyboard />
         </Route>
-        {/* <Route exact path="/matrix">
-          <Matrix />
-        </Route> */}
+        <Route exact path="/bounce">
+          <Bounce />
+        </Route>
       </Switch>
     </div>
     </Router>
