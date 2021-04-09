@@ -78,7 +78,7 @@ let mapStateToProps = (state) => {
 }
 
 let mapDispatchToProps = (dispatch) => {
-  return { addScore: (score) => dispatch({ type: "ADD_BOUNCE_SCORE", payload: score })}
+  return { addScore: (score) => dispatch({ type: "ADD_SCORE", payload: score })}
 }
 // score object ex: {user: "user.name", game: "bounce", score: this.state.score}}
 export default connect(mapStateToProps, mapDispatchToProps)(BounceContainer)

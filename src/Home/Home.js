@@ -2,6 +2,7 @@ import React from 'react'
 import Form from './Form'
 
 export default function Home() {
+
   return (
     <div>
       <h1> This is the Home Page, a form will be here to type in your name </h1>

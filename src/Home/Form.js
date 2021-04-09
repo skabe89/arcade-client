@@ -1,12 +1,17 @@
 import React, { Component } from 'react'
 // import { addMovie } from '../actions'
 import { connect } from 'react-redux'
+import { getScores } from '../actions/index'
 
 class Form extends Component {
 
   state = {
     name: "",
     character: "defalult character"
+  }
+
+  componentDidMount(){
+    this.props.getScores()
   }
 
   handleChange = (e) => {
@@ -26,6 +31,7 @@ class Form extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
@@ -44,13 +50,15 @@ class Form extends Component {
 
 const mapStateToProps = (state) => {
   return{
-    name: state.name
+    name: state.name,
+    scores: state.scores
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    setName: (name) => dispatch({type: "SET_NAME", payload: name})
+    setName: (name) => dispatch({type: "SET_NAME", payload: name}),
+    getScores: () => dispatch(getScores())
   }
 }
 
