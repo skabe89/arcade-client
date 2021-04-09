@@ -2,11 +2,17 @@ const initialState = {
   name: "",
   character: "",
   themeSong: [],
-  scores: []
+  scores: [],
+  loading: true
 }
 
 const userReducer = (state = initialState, action) => {
   switch(action.type){
+    case "LOADING":
+      return {
+        ...state,
+        loading: true
+      }
     case 'SET_NAME':
       console.log(state)
       console.log(action)

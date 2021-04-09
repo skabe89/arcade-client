@@ -45,7 +45,7 @@ playNoteInteger(integer){
         this.pressed = this.state.sounds.cNote
         this.pressedInteger = 0
         this.playNoteInteger(0)
-        console.log(this.pressed)
+        // console.log(this.pressed)
         console.log(this.pressedInteger)
         return null
       case "cSharp":

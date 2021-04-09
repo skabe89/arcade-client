@@ -34,8 +34,8 @@ class BounceContainer extends Component {
 
   sendScoresToRedux = () => {
     let score = {
-        name: this.props.userName,
         game: "Bounce",
+        gameId: 1,
         score: this.state.score
     } 
     this.props.addScore(score)

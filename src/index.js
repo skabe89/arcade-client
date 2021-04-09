@@ -6,8 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
 import { applyMiddleware, createStore } from 'redux'
 import userReducer from './reducers/userReducer';
+import thunk from 'redux-thunk'
+import { composeWithDevTools } from 'redux-devtools-extension'
 
-const walmart = createStore(userReducer)
+const walmart = createStore(userReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <React.StrictMode>
