@@ -12,6 +12,7 @@ import rightArrow from './characters/rightArrow.png'
 import leftDesk from './characters/ldesk.png'
 import rightDesk from './characters/rdesk.png'
 import Enoch from './characters/enochRevised.gif'
+import BassPluck from '../activities/keyboard/sounds/bassPluck.js'
 import { connect } from 'react-redux'
 
 class Room extends Component {
@@ -22,7 +23,8 @@ class Room extends Component {
     playerx: 5,
     playery: 1,
     direction: "up",
-    characterImage: upArrow
+    characterImage: upArrow,
+    sounds: BassPluck()
   }
 
   //will end up being 'this.state.downchacter' ex...redux.state{downcharacter: blahblahvlah.png}
@@ -104,24 +106,25 @@ class Room extends Component {
   }
 
   //themeSong logic
-  playNote(note){
-    note.play()
+  playNote(integer){
+    this.state.sounds[integer].play()
   }
 
   playback = () => {
     for(let i = 0; i < this.props.themeSong.length; i++){
       setTimeout(() => {
         console.log(this.props.themeSong[i])
-        if(this.props.themeSong[i] !== ""){
+        if(this.props.themeSong[i] !== 24){
           this.playNote(this.props.themeSong[i])
         }
-      }, i * 50)
+      }, i * 50) 
     }
   }
 
 
 
   render() {
+    console.log(this.props)
     return (
       <div className="tileContainer">
         {this.playerPosition() === "5-3" ? <MenuScreen option={this.EnochOption}/> : ""}
@@ -175,7 +178,8 @@ class Room extends Component {
 const mapStateToProps = (state) => {
   return {
     name: state.name,
-    themeSong: state.themeSong
+    themeSong: state.themeSong,
+    scores: state.scores
   }
 }
 

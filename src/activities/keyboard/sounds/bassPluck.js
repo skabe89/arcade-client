@@ -56,19 +56,7 @@ const sounds = () => {
   
 
   return(
-    {cNote: cNote,
-    cSharp: cSharp,
-    dNote: dNote,
-    dSharp: dSharp,
-    eNote: eNote,
-    fNote: fNote,
-    fSharp: fSharp,
-    gNote: gNote,
-    gSharp: gSharp,
-    aNote: aNote,
-    aSharp: aSharp,
-    bNote: bNote
-    }
+    [cNote, cSharp, dNote, dSharp, eNote, fNote, fSharp, gNote, gSharp, aNote, aSharp, bNote]
   )
 
 }

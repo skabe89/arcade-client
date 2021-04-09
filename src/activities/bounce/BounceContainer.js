@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import Bounce from './Bounce'
+import { connect } from 'react-redux'
 
-export default class BounceContainer extends Component {
+class BounceContainer extends Component {
   
   state = {
     score: -1,
-    time: 0
+    time: 0,
+    canSendScore: true
   }
 
   addPoint = () => {
@@ -18,19 +20,32 @@ export default class BounceContainer extends Component {
   }
 
   addTime = () => {
-    this.setState({score: -1, time: 30})
+    this.setState({score: -1, time: 30, canSendScore: true})
   }
 
   checkIfGameOver = () => {
-    if(this.state.score > 0 && this.state.time <= 0){
+    if(this.state.score > 0 && this.state.time <= 1 && this.state.canSendScore === true){
       console.log("Game Over")
       console.log(this.state.score)
+      this.sendScoresToRedux()
+      this.setState({canSendScore: false})
     }
+  }
+
+  sendScoresToRedux = () => {
+    let score = {
+        name: this.props.userName,
+        game: "Bounce",
+        score: this.state.score
+    } 
+    this.props.addScore(score)
   }
   
   
   render() {
-    console.log(this.state)
+    // console.log(this.state)
+    console.log(this.props)
+    console.log(this.state.canSendScore)
     if(this.state.time <= 0){
       return(
         <div>
@@ -54,3 +69,16 @@ export default class BounceContainer extends Component {
     }
   }
 }
+
+let mapStateToProps = (state) => {
+  return {
+    userName: state.name,
+    scores: state.scores
+  }
+}
+
+let mapDispatchToProps = (dispatch) => {
+  return { addScore: (score) => dispatch({ type: "ADD_BOUNCE_SCORE", payload: score })}
+}
+// score object ex: {user: "user.name", game: "bounce", score: this.state.score}}
+export default connect(mapStateToProps, mapDispatchToProps)(BounceContainer)
