@@ -1,9 +1,11 @@
 import React, { useEffect, useRef } from 'react'
 
-export default function Bounce() {
+export default function Bounce(props) {
   const canvasRef = useRef()
   let loopContinue = true
-  let points = -1
+  let score = props.score
+  let timer = props.time
+ 
 
 useEffect(() => {
  
@@ -42,6 +44,10 @@ useEffect(() => {
     }
     // console.log("Hello World")
   }
+
+  
+  
+  
   
   function checkPoint(){
     if(grub.x > player.x && grub.x < player.x + 20 && grub.y > player.y && grub.y < player.y + 20){
@@ -57,18 +63,33 @@ useEffect(() => {
       update()
       draw()
       animate(gameLoop)
-      console.log(points)
+      checkTime()
+      console.log(timer)
+      if(timer <= 1){
+        loopContinue = false
+        props.countDown()
+        clearInterval(intervalId)
+      }
+      
     }
     else if(loopContinue === false){
       return null
     }
+  }
+
+  let intervalId = setInterval(() => {
+    props.countDown()
+    timer --
+  }, 1000)
+
+  let checkTime = () => {
+    return props.time
   }
   
   function setup(){
     player = new Player();
     grub = new Grub()
     player.controls();
-  
     animate(gameLoop);
   }
   
@@ -182,7 +203,7 @@ useEffect(() => {
        this.width = 10
        this.color = "white"
        this.alive = true
-       points ++
+       props.addPoint()
     }
   
     draw(){
@@ -197,10 +218,6 @@ useEffect(() => {
     }
   
    }
-
-  // return () => {
-  //   loopContinue = false
-  // }
   setup()
 }, [])
 
@@ -208,15 +225,18 @@ useEffect(() => {
   return () => {
     console.log("cleaned up")
     loopContinue = false
+    props.countDown()
   }
 }, [])
 
-  
+
+
+
 
 
   return (
     <div>
-      <h1> Bounce </h1>
+      {console.log(props)}
       <canvas id="canvas" ref={canvasRef} height="600px" width="800px"></canvas>
     </div>
   )

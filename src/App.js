@@ -5,6 +5,7 @@ import Room from './room/Room'
 import Home from  './Home/Home'
 import Keyboard from './activities/keyboard/KeyboardContainer'
 import Bounce from './activities/bounce/Bounce'
+import BounceContainer from './activities/bounce/BounceContainer';
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
           <Keyboard />
         </Route>
         <Route exact path="/bounce">
-          <Bounce />
+          <BounceContainer />
         </Route>
       </Switch>
     </div>
