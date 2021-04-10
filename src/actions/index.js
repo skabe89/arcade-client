@@ -48,20 +48,21 @@ export const findOrCreateUser = (username) => {
   }
 }
 
-export const submitThemeSong = (song) => {
+export const submitThemeSong = (params) => {
   console.log("submitThemeSong")
-  console.log(song)
+  console.log(params)
+ 
   return (dispatch) => {
     console.log("submit theme song 2")
-    fetch('http://localhost:3001/users', {
-      method: "POST",
+    fetch('http://localhost:3001/users/' + params.userId, {
+      method: "PATCH",
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({song})
+      body: JSON.stringify({params})
     })
-    .then(resp => resp.json)
-    .then(data => console.log(data))
+    .then(resp => resp.json())
+    .then(data => dispatch({type: 'SET_USER', payload: data}))
   }
 }

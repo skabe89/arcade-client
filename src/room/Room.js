@@ -113,8 +113,8 @@ class Room extends Component {
   }
 
   playback = () => {
-    if(this.props.themeSong.length > 2){
-    let newLoop = this.bringBackLoop(this.props.themeSong)
+    if(this.props.user.song.length > 2){
+    let newLoop = this.bringBackLoop(this.props.user.song)
     console.log(newLoop)
     for(let i = 0; i < newLoop.length; i++){
       setTimeout(() => {
@@ -191,8 +191,7 @@ class Room extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    name: state.name,
-    themeSong: state.themeSong,
+    user: state.user,
     scores: state.scores
   }
 }

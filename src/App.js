@@ -6,11 +6,21 @@ import Home from  './Home/Home'
 import Keyboard from './activities/keyboard/KeyboardContainer'
 import Bounce from './activities/bounce/Bounce'
 import BounceContainer from './activities/bounce/BounceContainer';
+import { connect } from 'react-redux'
+import React, {Component } from 'react';
 
-function App() {
+class App extends Component {
+
+ 
+
+  render(){
+
+
+  if( Object.keys(this.props.user).length !== 0){
   return (
     <Router>
     <div>
+      {console.log(this.props)}
       <nav>
         <ul>
           <li>
@@ -45,6 +55,22 @@ function App() {
     </div>
     </Router>
   );
+  }
+  else{
+    return(
+      <div>
+        <Home />
+      </div>
+    )
+  }
+
+  }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(App);

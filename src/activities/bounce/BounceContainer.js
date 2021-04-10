@@ -47,7 +47,7 @@ class BounceContainer extends Component {
     let params = {
       game: "Bounce",
       gameId: 1,
-      userId: this.props.userId,
+      userId: this.props.user.id,
       score: this.state.score
     }
     
@@ -86,8 +86,7 @@ class BounceContainer extends Component {
 
 let mapStateToProps = (state) => {
   return {
-    userName: state.name,
-    userId: state.userId,
+    user: state.user,
     scores: state.scores
   }
 }

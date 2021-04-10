@@ -8,6 +8,7 @@ import BassPluck from './sounds/bassPluck'
 import Piano from './sounds/piano'
 import { render } from 'react-dom'
 import { connect } from 'react-redux'
+import { submitThemeSong } from "/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js"
 
 
 
@@ -181,6 +182,7 @@ playNoteInteger(integer){
   // }
 
   playback = () => {
+    if(this.state.loop.length > 2){
     let revived = this.bringBackLoop(this.stringedLoop(this.state.loop))
     for(let i = 0; i < revived.length; i++){
       this.currrentlyPlaying = true
@@ -195,14 +197,21 @@ playNoteInteger(integer){
     console.log(revived)
     // this.toggleCurrentlyPlayingOff()
   }
+  }
 
   componentWillUnmount(){
     this.stopRecording()
   }
 
   setAsTheme = () => {
-    this.props.setAsTheme(this.stringedLoop(this.state.loop))
+    if(this.state.loop.length > 2){
+    let params = {
+      id: this.props.user.id,
+      song: this.stringedLoop(this.state.loop)
+    }
+    this.props.submitThemeSong(params)
     console.log(this.stringedLoop(this.state.loop))
+  }
   }
 
 
@@ -222,8 +231,8 @@ playNoteInteger(integer){
   }
 
   playFromProps = () => {
-    if(this.props.themeSong.length > 2){
-    let revived = this.bringBackLoop(this.props.themeSong)
+    if(this.props.user.song.length > 2){
+    let revived = this.bringBackLoop(this.props.user.song)
     for(let i = 0; i < revived.length; i++){
       this.currrentlyPlaying = true
       setTimeout(() => {
@@ -272,12 +281,16 @@ playNoteInteger(integer){
 
 const mapStateToProps = (state) => {
   return {
+    user: state.user,
     themeSong: state.themeSong
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
-  return { setAsTheme: (loop) => dispatch({type: 'SET_THEME_SONG', payload: loop})}
-}
+// const mapDispatchToProps = (dispatch) => {
+//   return { 
+//     setAsTheme: (loop) => dispatch({type: 'SET_THEME_SONG', payload: loop}),
+//     submitTheme: (loop) => dispatch({type: 'SET_THEME_SONG', payload: loop})
+//   }
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(KeyboardContainer)
+export default connect(mapStateToProps, {submitThemeSong})(KeyboardContainer)

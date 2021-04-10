@@ -1,8 +1,5 @@
 const initialState = {
-  name: "",
-  userId: "",
-  character: "",
-  themeSong: [],
+  user: {},
   scores: [],
   loading: true,
   scoresFetched: false
@@ -19,21 +16,19 @@ const userReducer = (state = initialState, action) => {
     case 'SET_USER':
       console.log(state)
       console.log(action)
-      if(action.payload.themeSong === null)
+      // if(action.payload.themeSong === null)
       return {
         ...state,
-        name: action.payload.name,
-        userId: action.payload.id,
-        themeSong: ""
+        user: action.payload
       }
-      else{
-      return {
-        ...state,
-        name: action.payload.name,
-        userId: action.payload.id,
-        themeSong: action.payload.song
-      }
-      }
+      // else{
+      // return {
+      //   ...state,
+      //   name: action.payload.name,
+      //   userId: action.payload.id,
+      //   themeSong: action.payload.song
+      // }
+      // }
     case 'SET_THEME_SONG':
       console.log(state)
       return {
