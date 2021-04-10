@@ -64,7 +64,7 @@ useEffect(() => {
       draw()
       animate(gameLoop)
       checkTime()
-      console.log(timer)
+      // console.log(timer)
       if(timer <= 1){
         loopContinue = false
         props.countDown()
@@ -137,13 +137,13 @@ useEffect(() => {
           this.direction.down = true
           break
         case 65:
-          console.log("Left")
+          // console.log("Left")
           this.xspeed = -`${speedX}`
           this.resetDirections()
           this.direction.left = true
           break;
         case 68:
-          console.log("Right")
+          // console.log("Right")
           this.xspeed = speedX
           this.resetDirections()
           this.direction.right = true
@@ -236,7 +236,7 @@ useEffect(() => {
 
   return (
     <div>
-      {console.log(props)}
+      {/* {console.log(props)} */}
       <canvas id="canvas" ref={canvasRef} height="600px" width="800px"></canvas>
     </div>
   )

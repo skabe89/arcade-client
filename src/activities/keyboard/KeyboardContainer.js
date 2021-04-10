@@ -14,7 +14,7 @@ import { connect } from 'react-redux'
 class KeyboardContainer extends Component {
 
 state = {
-  loop: [],
+  loop: "",
   sounds: BassPluck()
 }
 
@@ -139,12 +139,17 @@ playNoteInteger(integer){
         recordLoop.push(this.pressedInteger)
         this.pressed = ""
         this.pressedInteger = 24
+        console.log(recordLoop)
       }, 50)
 
+   
+      console.log(recordLoop)
+     
       this.setState({loop: recordLoop})
       this.recording = false
     }
   }
+
 
   stopRecording = () => {
     clearInterval(this.intervalId)
@@ -176,17 +181,18 @@ playNoteInteger(integer){
   // }
 
   playback = () => {
-    for(let i = 0; i < this.state.loop.length; i++){
+    let revived = this.bringBackLoop(this.stringedLoop(this.state.loop))
+    for(let i = 0; i < revived.length; i++){
       this.currrentlyPlaying = true
       setTimeout(() => {
-        console.log(this.state.loop[i])
-        if(this.state.loop[i] !== 24){
-          this.playNoteInteger(this.state.loop[i])
-          console.log(this.state.loop[i])
+        console.log(revived[i])
+        if(revived[i] !== 24){
+          this.playNoteInteger(revived[i])
+          console.log(revived[i])
         }
       }, i * 50)
     }
-    console.log(this.state.loop)
+    console.log(revived)
     // this.toggleCurrentlyPlayingOff()
   }
 
@@ -195,10 +201,41 @@ playNoteInteger(integer){
   }
 
   setAsTheme = () => {
-    this.props.setAsTheme(this.state.loop)
+    this.props.setAsTheme(this.stringedLoop(this.state.loop))
+    console.log(this.stringedLoop(this.state.loop))
   }
 
 
+  stringedLoop = (stringloop) => {
+    console.log(stringloop)
+    let text = "";
+    stringloop.forEach(i => text = text +`${i} `)
+    return text
+  }
+
+  bringBackLoop = (loop) => {
+    console.log("in bring back loop")
+    let arr = loop.split(" ")
+    let arrInt = arr.map(i => parseInt(i))
+    arrInt.pop()
+    return arrInt
+  }
+
+  playFromProps = () => {
+    if(this.props.themeSong.length > 2){
+    let revived = this.bringBackLoop(this.props.themeSong)
+    for(let i = 0; i < revived.length; i++){
+      this.currrentlyPlaying = true
+      setTimeout(() => {
+        console.log(revived[i])
+        if(revived[i] !== 24){
+          this.playNoteInteger(revived[i])
+          console.log(revived[i])
+        }
+      }, i * 50)
+    }
+  }
+  }
 
 
 
@@ -226,9 +263,16 @@ playNoteInteger(integer){
         <button onClick={this.stopRecording}>Stop</button>
         <button onClick={this.playbackInteger}>Play Back Recording</button>
         <button onClick={this.toggleSounds}>Switch Sound</button>
+        <button onClick={this.playFromProps}>Play Current Chime</button>
         <button onClick={this.setAsTheme}>Set as your Theme Chime</button> 
       </div>
     )
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    themeSong: state.themeSong
   }
 }
 
@@ -236,4 +280,4 @@ const mapDispatchToProps = (dispatch) => {
   return { setAsTheme: (loop) => dispatch({type: 'SET_THEME_SONG', payload: loop})}
 }
 
-export default connect(null, mapDispatchToProps)(KeyboardContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(KeyboardContainer)

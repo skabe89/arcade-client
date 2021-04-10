@@ -37,7 +37,9 @@ class Room extends Component {
 
   componentDidMount(){
     this._isMounted = true
+   
     this.playback()
+  
     window.addEventListener('keydown', (e) => {
       switch(e.key){
         case "w":
@@ -111,14 +113,26 @@ class Room extends Component {
   }
 
   playback = () => {
-    for(let i = 0; i < this.props.themeSong.length; i++){
+    if(this.props.themeSong.length > 2){
+    let newLoop = this.bringBackLoop(this.props.themeSong)
+    console.log(newLoop)
+    for(let i = 0; i < newLoop.length; i++){
       setTimeout(() => {
-        console.log(this.props.themeSong[i])
-        if(this.props.themeSong[i] !== 24){
-          this.playNote(this.props.themeSong[i])
+        console.log(newLoop[i])
+        if(newLoop[i] !== 24){
+          this.playNote(newLoop[i])
         }
       }, i * 50) 
     }
+  }
+  }
+
+  bringBackLoop = (loop) => {
+    console.log("in bring back loop")
+    let arr = loop.split(" ")
+    let arrInt = arr.map(i => parseInt(i))
+    arrInt.pop()
+    return arrInt
   }
 
 

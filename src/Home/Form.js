@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import { addMovie } from '../actions'
 import { connect } from 'react-redux'
 import { getScores } from '../actions/index'
+import { findOrCreateUser } from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js'
 
 class Form extends Component {
 
@@ -21,7 +22,7 @@ class Form extends Component {
   handleSubmit = (e) => {
     console.log(e)
     e.preventDefault()
-    this.props.setName(this.state.name)
+    this.props.getUser(this.state.name)
     // console.log(this.state)
   }
 
@@ -58,7 +59,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     setName: (name) => dispatch({type: "SET_NAME", payload: name}),
-    getScores: () => dispatch(getScores())
+    getScores: () => dispatch(getScores()),
+    getUser: (name) => dispatch(findOrCreateUser(name))
   }
 }
 

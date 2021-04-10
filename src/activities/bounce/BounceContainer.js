@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Bounce from './Bounce'
 import { connect } from 'react-redux'
+import { submitScore } from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js'
 
 class BounceContainer extends Component {
   
@@ -27,7 +28,8 @@ class BounceContainer extends Component {
     if(this.state.score > 0 && this.state.time <= 1 && this.state.canSendScore === true){
       console.log("Game Over")
       console.log(this.state.score)
-      this.sendScoresToRedux()
+      // this.sendScoresToRedux()
+      this.dispatchScore()
       this.setState({canSendScore: false})
     }
   }
@@ -38,14 +40,26 @@ class BounceContainer extends Component {
         gameId: 1,
         score: this.state.score
     } 
-    this.props.addScore(score)
+    // this.props.addScore(score)
+  }
+
+  dispatchScore = () => {
+    let params = {
+      game: "Bounce",
+      gameId: 1,
+      userId: this.props.userId,
+      score: this.state.score
+    }
+    
+    this.props.submitScore(params)
+    console.log("inside bounce container")
   }
   
   
   render() {
     // console.log(this.state)
-    console.log(this.props)
-    console.log(this.state.canSendScore)
+    // console.log(this.props)
+    // console.log(submitScore)
     if(this.state.time <= 0){
       return(
         <div>
@@ -73,12 +87,18 @@ class BounceContainer extends Component {
 let mapStateToProps = (state) => {
   return {
     userName: state.name,
+    userId: state.userId,
     scores: state.scores
   }
 }
 
-let mapDispatchToProps = (dispatch) => {
-  return { addScore: (score) => dispatch({ type: "ADD_SCORE", payload: score })}
-}
+// let mapDispatchToProps = (dispatch) => {
+//   return { 
+//     addScore: (score) => dispatch({ type: "ADD_SCORE", payload: score,
+//     // submitScore: (score) => dispatch(submitScore(score))
+//     })
+//   }
+// }
+
 // score object ex: {user: "user.name", game: "bounce", score: this.state.score}}
-export default connect(mapStateToProps, mapDispatchToProps)(BounceContainer)
+export default connect(mapStateToProps, { submitScore })(BounceContainer)
