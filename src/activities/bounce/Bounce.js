@@ -14,7 +14,7 @@ useEffect(() => {
   const animate = window.requestAnimationFrame;
   
   const GAME_HEIGHT = 600;
-  const GAME_WIDTH = 800;
+  const GAME_WIDTH = 810;
   let speedY = 4
   let speedX = 4
   
@@ -235,9 +235,11 @@ useEffect(() => {
 
 
   return (
+    
     <div>
       {/* {console.log(props)} */}
-      <canvas id="canvas" ref={canvasRef} height="600px" width="800px"></canvas>
+      <canvas id="canvas" ref={canvasRef} height="600px" width="810px"></canvas>
     </div>
+   
   )
 }

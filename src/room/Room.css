@@ -1,15 +1,19 @@
+
+
 .tileContainer{
   margin: auto;
   z-index: 1;
-  background-color: rgb(115, 163, 224);
+  background-color: rgb(43, 41, 41);
   grid-template-columns: auto auto auto auto auto auto auto auto auto;
   display: grid;
   height: 360px;
   width: 810px;
+  top: 240px;
+  padding-top: 210px;
 }
 
 .tile{
-  background-color: rgb(204, 202, 200);
+  background-color: rgb(180, 191, 226);
   height: 90px;
   width: 90px;
 }

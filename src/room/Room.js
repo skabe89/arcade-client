@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Room.css'
+import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
 import Tile from './Tile'
 import MenuScreen from './MenuScreen'
 import pong from './characters/pong.gif'
@@ -140,6 +141,9 @@ class Room extends Component {
   render() {
     console.log(this.props)
     return (
+      <div className="tv-frame">
+      <div className="tv-div">
+      <div className="block">
       <div className="tileContainer">
         {this.playerPosition() === "5-3" ? <MenuScreen option={this.EnochOption}/> : ""}
         {this.playerPosition() === "3-4" ? <MenuScreen option={ this.bounceOption }/> : ""}
@@ -184,6 +188,9 @@ class Room extends Component {
         <Tile tile={"8-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"9-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         {/* <Tile tile={"10-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/> */}
+      </div>
+      </div>
+      </div>
       </div>
     )
   }

@@ -36,3 +36,26 @@
     transform: rotate(360deg);
   }
 }
+
+.tv-div{
+  margin: auto;
+  width: 810px;
+  height: 745px;
+  background-color: rgb(20, 20, 20);
+  border-radius: 8px;
+  color: aliceblue;
+  text-align: center;
+}
+
+.tv-frame{
+  margin: auto;
+  width: 870px;
+  height: 870px;
+  padding-top: 30px;
+  background-color: rgb(107, 97, 97);
+  border-radius: 10px;
+}
+
+.scroll{
+  overflow-y: scroll;
+}

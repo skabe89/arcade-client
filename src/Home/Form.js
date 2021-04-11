@@ -42,7 +42,6 @@ class Form extends Component {
           </div>
             <input type="submit" value="Confirm Name" />
         </form>
-        <button onClick={ this.resetName }>Reset Name to ""</button>
         <h1>{this.props.name}</h1>
       </div>
     )

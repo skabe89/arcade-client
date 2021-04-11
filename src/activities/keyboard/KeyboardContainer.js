@@ -4,6 +4,7 @@ import KeyController from './KeyboardControls'
 import BlackKey from './BlackKey'
 import Key from './Key'
 import './Keyboard.css'
+import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
 import BassPluck from './sounds/bassPluck'
 import Piano from './sounds/piano'
 import { render } from 'react-dom'
@@ -252,7 +253,9 @@ playNoteInteger(integer){
     console.log(this.state)
     
     return (
-      <div>
+      <div className="tv-frame">
+      <div className="tv-div">
+      <div className="push" />
         <KeyController record={this.startRecording} stopRecord={this.stopRecording} playback={this.playback}/>
         <div className="keyboard" >
             <Key keyPress={this.keyPress} note="c"/>
@@ -274,6 +277,8 @@ playNoteInteger(integer){
         <button onClick={this.toggleSounds}>Switch Sound</button>
         <button onClick={this.playFromProps}>Play Current Chime</button>
         <button onClick={this.setAsTheme}>Set as your Theme Chime</button> 
+      
+      </div>
       </div>
     )
   }

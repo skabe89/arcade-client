@@ -1,7 +1,14 @@
 /* keyboard Styles */
+.push{
+  height: 50px;
+  width: 810px;
+  padding-top: 10px;
+  background-color: rgb(43, 41, 41);
+  border-radius: 8px;;
+}
 
 .keyboard{
-  background-color: #282c34;
+  background-color: #000000;
   margin: auto;
   position: relative;
   width: 810px;
