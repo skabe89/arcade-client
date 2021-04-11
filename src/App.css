@@ -57,5 +57,7 @@
 }
 
 .scroll{
-  overflow-y: scroll;
+  height: 590px;
+  overflow: hidden;
+  /* overflow-y: scroll; */
 }

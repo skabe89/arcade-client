@@ -15,6 +15,7 @@ import rightDesk from './characters/rdesk.png'
 import Enoch from './characters/enochRevised.gif'
 import BassPluck from '../activities/keyboard/sounds/bassPluck.js'
 import { connect } from 'react-redux'
+import characters from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/room/characters/characters.js'
 
 class Room extends Component {
 
@@ -29,8 +30,8 @@ class Room extends Component {
   }
 
   //will end up being 'this.state.downchacter' ex...redux.state{downcharacter: blahblahvlah.png}
-  characterDirections = {
-    up: upArrow,
+  characterDirections =  {
+    up: characters.redArrow.up,
     left: leftArrow,
     down: downArrow,
     right: rightArrow
@@ -48,12 +49,12 @@ class Room extends Component {
             this.setState({direction: "up"})
           }
           else if(this.state.playery < 4){
-            this.setState({playery: this.state.playery + 1, direction: "up", characterImage: upArrow})//reduxstore.upCharacter
+            this.setState({playery: this.state.playery + 1, direction: "up", characterImage: this.characterDirections.up})//reduxstore.upCharacter
           }
           break
         case "s":
           if(this.state.playery > 1){
-            this.setState({playery: this.state.playery - 1, direction: "down", characterImage: downArrow})
+            this.setState({playery: this.state.playery - 1, direction: "down", characterImage: this.characterDirections.down})
           }
           break
         case "d":
@@ -61,7 +62,7 @@ class Room extends Component {
             this.setState({direction: "right"})
           }
           else if(this.state.playerx < 9){
-            this.setState({playerx: this.state.playerx + 1, direction: "right", characterImage: rightArrow})
+            this.setState({playerx: this.state.playerx + 1, direction: "right", characterImage: this.characterDirections.right})
           }
           break
         case "a":
@@ -69,7 +70,7 @@ class Room extends Component {
             this.setState({direction: "left"})
           }
           else if(this.state.playerx > 1){
-            this.setState({playerx: this.state.playerx - 1, direction: "left", characterImage: leftArrow})
+            this.setState({playerx: this.state.playerx - 1, direction: "left", characterImage: this.characterDirections.left})
           }
           break
         default:

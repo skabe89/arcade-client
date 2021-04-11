@@ -15,6 +15,9 @@ class BounceContainer extends Component {
 
   addPoint = () => {
     this.setState({score: this.state.score + 1})
+    if(this.state.score > this.sortedScores()[0].score){
+      console.log("High Score!!!")
+    }
   }
 
   countDown = () => {
@@ -99,7 +102,7 @@ class BounceContainer extends Component {
         <h3>Score: {this.state.score}</h3>
 
         {this.state.time > 0 ?  <Bounce score={this.state.score} addPoint={this.addPoint} countDown={this.countDown} time={this.state.time}/> : "" }
-        <button onClick={this.addTime}>count</button>
+        
       </div>
       </div>
       </div>
