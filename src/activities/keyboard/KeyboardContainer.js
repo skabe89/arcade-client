@@ -3,12 +3,14 @@ import KeyController from './KeyboardControls'
 // import {Howl, Howler} from 'howler';
 import BlackKey from './BlackKey'
 import Key from './Key'
+import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/Home/Buttons.js'
 import './Keyboard.css'
 import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
 import BassPluck from './sounds/bassPluck'
 import Piano from './sounds/piano'
 import { render } from 'react-dom'
 import { connect } from 'react-redux'
+import {Link} from "react-router-dom";
 import { submitThemeSong } from "/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js"
 
 
@@ -279,6 +281,7 @@ playNoteInteger(integer){
         <button onClick={this.setAsTheme}>Set as your Theme Chime</button> 
       
       </div>
+        <Buttons />
       </div>
     )
   }

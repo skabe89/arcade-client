@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import Bounce from './Bounce'
 import Score from './Score'
 import { connect } from 'react-redux'
+import {Link} from "react-router-dom";
 import { submitScore } from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js'
 import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
+import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/Home/Buttons.js'
 
 class BounceContainer extends Component {
   
@@ -78,15 +80,16 @@ class BounceContainer extends Component {
       <div className="tv-frame">
       <div className="tv-div">
         <div>
-        <h1>Bounce</h1>
-        {this.state.score > 0 ? <h1>Your Score: {this.state.score}</h1> : ""} 
+        <h2>Bounce</h2>
+        {this.state.score > 0 ? <h2>Your Score: {this.state.score}</h2> : ""} 
         <button onClick={this.addTime}>Start Game</button>
         <div className="scroll">
-          <h1>High Scores</h1>
+          <h2>High Scores</h2>
           {this.renderScores()}
         </div>
         </div>
       </div>
+      <Buttons/>
       </div>
      
 
@@ -105,6 +108,7 @@ class BounceContainer extends Component {
         
       </div>
       </div>
+      <Buttons />
       </div>
 
     )

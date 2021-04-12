@@ -8,20 +8,20 @@ import downArrow from './downArrow.png'
 import rightArrow from './rightArrow.png'
 
 
-const characters = {
-  redArrow: {
+const characters = [
+   {
     up: redUp,
     left: redLeft,
     down: redDown,
     right: redRight
   },
 
-  blackArrow: {
+   {
     up: upArrow,
     left: leftArrow,
     down: downArrow,
     right: rightArrow
   }
-}
+]
 
 export default characters

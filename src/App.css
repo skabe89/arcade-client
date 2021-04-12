@@ -39,25 +39,112 @@
 
 .tv-div{
   margin: auto;
+  position: relative;
   width: 810px;
   height: 745px;
   background-color: rgb(20, 20, 20);
   border-radius: 8px;
+  top: 30px;
   color: aliceblue;
   text-align: center;
 }
 
 .tv-frame{
   margin: auto;
+  position: relative;
   width: 870px;
   height: 870px;
-  padding-top: 30px;
+  /* padding-top: 30px; */
   background-color: rgb(107, 97, 97);
   border-radius: 10px;
 }
 
 .scroll{
-  height: 590px;
+  height: 560px;
   overflow: hidden;
   /* overflow-y: scroll; */
+}
+
+.arcade-button{
+  margin: auto;
+  position: relative;
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  top: 35px;
+  left: 18%;
+  background-color: blue;
+  border-style: solid;
+  border-width: 7px;;
+  border-color: rgb(5, 5, 109);
+}
+
+.arcade-button:hover{
+  background-color: rgb(62, 62, 255);
+  border-color: rgb(17, 17, 173);
+}
+
+.arcade-button:active{
+  background-color: rgb(5, 5, 109);
+}
+
+.arcade-button2{
+  margin: auto;
+  position: relative;
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  top: 35px;
+  left: 50%;
+  background-color: rgb(248, 2, 2);
+  border-style: solid;
+  border-width: 7px;;
+  border-color: rgb(146, 4, 4);
+}
+
+.arcade-button2:hover{
+  background-color: rgb(255, 56, 56);
+  border-color: rgb(211, 15, 15);
+}
+
+.arcade-button2:active{
+  background-color: rgb(146, 4, 4);
+}
+
+.arcade-button3{
+  margin: auto;
+  position: relative;
+  display: inline-block;
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  top: 35px;
+  left: 52%;
+  background-color: rgb(30, 255, 0);
+  border-style: solid;
+  border-width: 7px;;
+  border-color: rgb(21, 128, 6);
+}
+
+.arcade-button3:hover{
+  background-color: rgb(108, 235, 92);
+  border-color: rgb(34, 170, 16);
+}
+
+.arcade-button3:active{
+  background-color: rgb(21, 128, 6);
+}
+
+.button-container{
+  position: relative;
+  display: inline-block;
+  height: 80px;
+  width: 870px;
+}
+
+@font-face{
+  font-family: minecraft;
+  src: local();
 }

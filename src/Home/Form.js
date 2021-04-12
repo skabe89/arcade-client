@@ -37,12 +37,12 @@ class Form extends Component {
       <div>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <label htmlFor="name" > Name </label>
             <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleChange}></input>
           </div>
+            <br/>
             <input type="submit" value="Confirm Name" />
         </form>
-        <h1>{this.props.name}</h1>
+        {/* <h1>{this.props.name}</h1> */}
       </div>
     )
   }

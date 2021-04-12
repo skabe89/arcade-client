@@ -1,18 +1,18 @@
 import React, { Component } from 'react'
 import './Room.css'
 import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
+import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/Home/Buttons.js'
 import Tile from './Tile'
 import MenuScreen from './MenuScreen'
-import pong from './characters/pong.gif'
 import piano from './characters/piano.png'
 import bounce from './characters/bounce.gif'
+import outoforder from './characters/outoforder.png'
+import outoforder2 from './characters/outoforder2.png'
 import upArrow from './characters/upArrow-90x90.png'
-import leftArrow from './characters/leftArrow.png'
-import downArrow from './characters/downArrow.png'
-import rightArrow from './characters/rightArrow.png'
 import leftDesk from './characters/ldesk.png'
 import rightDesk from './characters/rdesk.png'
 import Enoch from './characters/enochRevised.gif'
+import Tree from './characters/palmtree.png'
 import BassPluck from '../activities/keyboard/sounds/bassPluck.js'
 import { connect } from 'react-redux'
 import characters from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/room/characters/characters.js'
@@ -26,15 +26,16 @@ class Room extends Component {
     playery: 1,
     direction: "up",
     characterImage: upArrow,
-    sounds: BassPluck()
+    sounds: BassPluck(),
+    character: 0
   }
 
   //will end up being 'this.state.downchacter' ex...redux.state{downcharacter: blahblahvlah.png}
   characterDirections =  {
-    up: characters.redArrow.up,
-    left: leftArrow,
-    down: downArrow,
-    right: rightArrow
+    up: characters[this.state.character].up,
+    left: characters[this.state.character].left,
+    down: characters[this.state.character].down,
+    right: characters[this.state.character].right,
   }
 
   componentDidMount(){
@@ -45,7 +46,7 @@ class Room extends Component {
     window.addEventListener('keydown', (e) => {
       switch(e.key){
         case "w":
-          if(this.playerPosition() === "4-3" || this.playerPosition() === "5-3" || this.playerPosition() === "6-3"){
+          if(this.playerPosition() === "4-3" || this.playerPosition() === "5-3" || this.playerPosition() === "6-3" || this.playerPosition() === "9-3" || this.playerPosition() === "7-3" || this.playerPosition() === "8-3" || this.playerPosition() === "1-3"){
             this.setState({direction: "up"})
           }
           else if(this.state.playery < 4){
@@ -149,17 +150,17 @@ class Room extends Component {
         {this.playerPosition() === "5-3" ? <MenuScreen option={this.EnochOption}/> : ""}
         {this.playerPosition() === "3-4" ? <MenuScreen option={ this.bounceOption }/> : ""}
         {this.playerPosition() === "1-3" ? <MenuScreen option={ this.keyboardOption } /> : ""}
-        <Tile tile={"1-4, decor"} playerPosition={this.playerPosition()} image={""}/>
+        <Tile tile={"1-4, decor"} playerPosition={this.playerPosition()} image={Tree}/>
         <Tile tile={"2-4"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
-        <Tile tile={"3-4"} playerPosition={this.playerPosition()} image={bounce}/>
+        <Tile tile={"3-4"} playerPosition={this.playerPosition()} image={bounce} character={bounce}/>
         <Tile tile={"4-4, desk"} playerPosition={this.playerPosition()} image={leftDesk} character={this.state.characterImage}/>
         <Tile tile={"5-4, desk"} playerPosition={this.playerPosition()} image={Enoch} character={this.state.characterImage}/>
         <Tile tile={"6-4, desk"} playerPosition={this.playerPosition()} image={rightDesk} character={this.state.characterImage}/>
-        <Tile tile={"7-4"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
-        <Tile tile={"8-4"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
-        <Tile tile={"9-4, decor"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
+        <Tile tile={"7-4"} playerPosition={this.playerPosition()}  image={outoforder2} character={this.state.characterImage}/>
+        <Tile tile={"8-4"} playerPosition={this.playerPosition()} image={outoforder} character={this.state.characterImage}/>
+        <Tile tile={"9-4, decor"} playerPosition={this.playerPosition()} image={Tree} character={this.state.characterImage}/>
         {/* <Tile tile={"10-4, "} playerPosition={this.playerPosition()} character={this.state.characterImage}/> */}
-        <Tile tile={"1-3"} playerPosition={this.playerPosition()} image={piano}/>
+        <Tile tile={"1-3"} playerPosition={this.playerPosition()} image={piano} character={piano}/>
         <Tile tile={"2-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"3-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"4-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
@@ -192,6 +193,7 @@ class Room extends Component {
       </div>
       </div>
       </div>
+        <Buttons />
       </div>
     )
   }

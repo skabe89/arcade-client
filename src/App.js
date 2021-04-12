@@ -3,6 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Room from './room/Room'
 import Home from  './Home/Home'
+import Buttons from  './Home/Buttons'
 import Keyboard from './activities/keyboard/KeyboardContainer'
 import Bounce from './activities/bounce/Bounce'
 import BounceContainer from './activities/bounce/BounceContainer';
@@ -25,15 +26,6 @@ class App extends Component {
         <ul>
           <li>
             <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/room">Room</Link>
-          </li>
-          <li>
-            <Link to="/keyboard">Keyboard</Link>
-          </li>
-          <li>
-            <Link to="/bounce">Bounce</Link>
           </li>
         </ul>
       </nav>
