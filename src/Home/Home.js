@@ -12,13 +12,12 @@ class Home extends Component {
   return (
     <div className="tv-frame">
     <div className="tv-div">
-    <div style={{padding: "30px"}}>
-      <h1> This is the Home Page, a form will be here to type in your name </h1>
-      <h1> If I get around to it a character select will also be held here</h1>
-      { Object.keys(this.props.user).length === 0 ? <div> <h1>Please Enter Your Name</h1> <Form /></div> : <h1><Link to="/room">Go To Aracde</Link></h1> }
+      <div style={{padding: "30px"}}>
+        <h1> This is the Home Page, a quick rundown of the app and a welcome will be here </h1>
+        <h1> A character select will also be held here (stretch goal)</h1>
+        { Object.keys(this.props.user).length === 0 ? <div> <h1>Please Enter Your Name</h1> <Form /></div> : <h1><Link to="/room">Go To Aracde</Link></h1> }
+      </div>
     </div>
-    </div>
-    {/* <Link to="/room"><div className="arcade-button"/></Link> */}
     </div>
   )
   }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import KeyController from './KeyboardControls'
-// import {Howl, Howler} from 'howler';
 import BlackKey from './BlackKey'
 import Key from './Key'
 import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/Home/Buttons.js'
@@ -8,9 +7,7 @@ import './Keyboard.css'
 import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
 import BassPluck from './sounds/bassPluck'
 import Piano from './sounds/piano'
-import { render } from 'react-dom'
 import { connect } from 'react-redux'
-import {Link} from "react-router-dom";
 import { submitThemeSong } from "/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js"
 
 
@@ -21,12 +18,6 @@ state = {
   loop: "",
   sounds: BassPluck()
 }
-
-
-// handleSoundSelect = (e) => {
-//   this.setState(soundLibrary: e.target)
-// }
-
 
 
 pressed = ""
@@ -135,7 +126,7 @@ playNoteInteger(integer){
       // let recordLoopInteger = []
 
       this.intervalId = setInterval(() => {
-        if(recordLoop.length === 200){
+        if(recordLoop.length === 100){
           this.stopRecording()
         }
         console.log(this.pressedInteger)
@@ -167,22 +158,6 @@ playNoteInteger(integer){
     this.currrentlyPlaying = false
   }
 
-  // playback = () => {
-  //   for(let i = 0; i < this.state.loop.length; i++){
-  //     this.currrentlyPlaying = true
-  //     setTimeout(() => {
-  //       console.log(this.state.loop[i])
-  //       if(this.state.loop[i] !== ""){
-  //         this.playNote(this.state.loop[i])
-  //         console.log(this.state.loop[i])
-  //         console.log(this.state.loopInteger[i])
-  //       }
-  //     }, i * 50)
-  //   }
-  //   console.log(this.state.loop)
-  //   console.log(this.state.loopInteger)
-  //   // this.toggleCurrentlyPlayingOff()
-  // }
 
   playback = () => {
     if(this.state.loop.length > 2){
@@ -197,9 +172,7 @@ playNoteInteger(integer){
         }
       }, i * 50)
     }
-    console.log(revived)
-    // this.toggleCurrentlyPlayingOff()
-  }
+    }
   }
 
   componentWillUnmount(){
@@ -214,7 +187,7 @@ playNoteInteger(integer){
     }
     this.props.submitThemeSong(params)
     console.log(this.stringedLoop(this.state.loop))
-  }
+    }
   }
 
 
@@ -258,7 +231,12 @@ playNoteInteger(integer){
       <div className="tv-frame">
       <div className="tv-div">
       <div className="push" />
-        <KeyController record={this.startRecording} stopRecord={this.stopRecording} playback={this.playback}/>
+        {/* <KeyController record={this.startRecording} stopRecord={this.stopRecording} playback={this.playback}/> */}
+        <button onClick={this.startRecording}>Record</button>
+        {/* <button onClick={this.stopRecording}>Stop</button> */}
+        <button onClick={this.playback}>Play Back Recording</button>
+        {/* <button onClick={this.toggleSounds}>Switch Sound</button> */}
+        <br/>
         <div className="keyboard" >
             <Key keyPress={this.keyPress} note="c"/>
             <BlackKey keyPress={this.keyPress} note="cSharp" /> 
@@ -273,13 +251,8 @@ playNoteInteger(integer){
             <BlackKey keyPress={this.keyPress} note="aSharp" /> 
             <Key keyPress={this.keyPress} note="b"/> 
         </div>
-        <button onClick={this.startRecording}>Record</button>
-        <button onClick={this.stopRecording}>Stop</button>
-        <button onClick={this.playbackInteger}>Play Back Recording</button>
-        <button onClick={this.toggleSounds}>Switch Sound</button>
         <button onClick={this.playFromProps}>Play Current Chime</button>
-        <button onClick={this.setAsTheme}>Set as your Theme Chime</button> 
-      
+        <button onClick={this.setAsTheme}>Set recording as your Theme Chime</button> 
       </div>
         <Buttons />
       </div>
@@ -293,12 +266,5 @@ const mapStateToProps = (state) => {
     themeSong: state.themeSong
   }
 }
-
-// const mapDispatchToProps = (dispatch) => {
-//   return { 
-//     setAsTheme: (loop) => dispatch({type: 'SET_THEME_SONG', payload: loop}),
-//     submitTheme: (loop) => dispatch({type: 'SET_THEME_SONG', payload: loop})
-//   }
-// }
 
 export default connect(mapStateToProps, {submitThemeSong})(KeyboardContainer)

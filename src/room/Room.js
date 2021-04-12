@@ -67,7 +67,7 @@ class Room extends Component {
           }
           break
         case "a":
-          if(this.playerPosition() === "7-4"){
+          if(this.playerPosition() === "7-4" || this.playerPosition() === "2-4"){
             this.setState({direction: "left"})
           }
           else if(this.state.playerx > 1){
@@ -100,8 +100,8 @@ class Room extends Component {
 
   EnochOption = {
     name: "talk to enoch",
-    link: '/arcade',
-    text: 'Under Construction, try again later!',
+    link: "",
+    text: 'Please excure our mess while we work!',
     user: this.props.name
   }
 
@@ -127,7 +127,7 @@ class Room extends Component {
         }
       }, i * 50) 
     }
-  }
+    }
   }
 
   bringBackLoop = (loop) => {

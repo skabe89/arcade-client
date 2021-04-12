@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Bounce from './Bounce'
 import Score from './Score'
 import { connect } from 'react-redux'
-import {Link} from "react-router-dom";
 import { submitScore } from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js'
 import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
 import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/Home/Buttons.js'
@@ -67,7 +66,7 @@ class BounceContainer extends Component {
   }
 
   renderScores = () => {
-    return this.sortedScores().map((score) => <Score score={score}/>)
+    return this.sortedScores().map((score, index) => <Score key={index} score={score}/>)
   }
   
   
@@ -80,6 +79,7 @@ class BounceContainer extends Component {
       <div className="tv-frame">
       <div className="tv-div">
         <div>
+          <br/>
         <h2>Bounce</h2>
         {this.state.score > 0 ? <h2>Your Score: {this.state.score}</h2> : ""} 
         <button onClick={this.addTime}>Start Game</button>

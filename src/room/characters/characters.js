@@ -6,14 +6,18 @@ import upArrow from './upArrow.png'
 import leftArrow from './leftArrow.png'
 import downArrow from './downArrow.png'
 import rightArrow from './rightArrow.png'
+import slugDown from './slugDown.gif'
+import slugRight from './slugRight.gif'
+import slugLeft from './slugLeft.gif'
+import slugUp from './slugUp.gif'
 
 
 const characters = [
    {
-    up: redUp,
-    left: redLeft,
-    down: redDown,
-    right: redRight
+    up: slugUp,
+    left: slugLeft,
+    down: slugDown,
+    right: slugRight
   },
 
    {
@@ -22,6 +26,8 @@ const characters = [
     down: downArrow,
     right: rightArrow
   }
+
+
 ]
 
 export default characters

@@ -3,9 +3,7 @@ import './App.css';
 import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
 import Room from './room/Room'
 import Home from  './Home/Home'
-import Buttons from  './Home/Buttons'
 import Keyboard from './activities/keyboard/KeyboardContainer'
-import Bounce from './activities/bounce/Bounce'
 import BounceContainer from './activities/bounce/BounceContainer';
 import { connect } from 'react-redux'
 import React, {Component } from 'react';
@@ -21,14 +19,14 @@ class App extends Component {
   return (
     <Router>
     <div>
-      {console.log(this.props)}
+      {/* {console.log(this.props)}
       <nav>
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
         </ul>
-      </nav>
+      </nav> */}
 
       <Switch>
         <Route exact path="/">

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-// import { addMovie } from '../actions'
 import { connect } from 'react-redux'
 import { getScores } from '../actions/index'
 import { findOrCreateUser } from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js'
@@ -40,7 +39,7 @@ class Form extends Component {
             <input type="text" id="name" name="name" value={this.state.name} onChange={this.handleChange}></input>
           </div>
             <br/>
-            <input type="submit" value="Confirm Name" />
+            <input type="submit" value="SUBMIT NAME" />
         </form>
         {/* <h1>{this.props.name}</h1> */}
       </div>

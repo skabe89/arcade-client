@@ -13,7 +13,7 @@ export default class Tile extends Component {
   
   
   render() {
-    // console.log(this.props)
+    
     if(this.renderPlayer()){
       return (
         <div className="tile" id="character"><img src={this.props.character}/></div>
@@ -26,7 +26,7 @@ export default class Tile extends Component {
     }
     else{
       return (
-        <div className="tile" >{this.props.tile} </div>
+        <div className="tile" ></div>
       )
     }
   }
