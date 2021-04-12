@@ -89,20 +89,24 @@ class Room extends Component {
   keyboardOption = {
     name: "KeyBoard",
     link: "/keyboard",
+    instructions: "Click the keys and record to set your welcome chime!",
     text: "Play Your KeyBoard!"
   }
 
   bounceOption = {
     name: "Bounce!!!",
     link: '/bounce',
+    instructions: "Use the direction keys to collect as many white squares as you can!",
     text: 'Play Bounce!'
+    
   }
 
   EnochOption = {
-    name: "talk to enoch",
+    name: "Please excure our mess while we work!",
     link: "",
-    text: 'Please excure our mess while we work!',
-    user: this.props.name
+    instructions: "",
+    text: '',
+    user: this.props.user.name
   }
 
   componentWillUnmount(){
