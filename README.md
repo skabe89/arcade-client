@@ -1,6 +1,6 @@
 # React Arcade
 
-This app is an expandable arcade built using React.
+This app is an expandable arcade built using React and Redux.
 
 ## Installation
 
