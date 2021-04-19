@@ -2,6 +2,10 @@
 
 This app is an expandable arcade built using React and Redux.
 
+## Api Link
+
+https://github.com/skabe89/arcade-api
+
 ## Installation
 
 Clone the frontend repo
