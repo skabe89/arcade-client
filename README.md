@@ -22,8 +22,8 @@ Inside the backend dir, run bundle install
 
 Create and Migrate your db
 
-`$ rails db:create
- $ rails db:migrate`
+`$ rails db:create`
+`$ rails db:migrate`
 
 ## To start
 
