@@ -1,6 +1,5 @@
 
 export const getScores = () => {
-  console.log("wow")
   return dispatch => {
     dispatch({ type: "LOADING" })
     fetch("http://localhost:3001/scores")
@@ -11,7 +10,6 @@ export const getScores = () => {
 
 export const submitScore = (score) => {
   
-  console.log("c")
   return (dispatch) => {
     fetch('http://localhost:3001/scores', {
       method: "POST",
@@ -23,15 +21,12 @@ export const submitScore = (score) => {
     })
       .then(resp => resp.json())
       .then(score => {
-        console.log("d")
         dispatch({ type: "ADD_SCORE", payload: score })
       })
   }
 }
 
 export const findOrCreateUser = (username) => {
-  console.log("user")
-  console.log(username)
   return (dispatch) => {
     console.log("user-2")
     fetch('http://localhost:3001/users', {
@@ -50,11 +45,8 @@ export const findOrCreateUser = (username) => {
 }
 
 export const submitThemeSong = (params) => {
-  console.log("submitThemeSong")
-  console.log(params)
 
   return (dispatch) => {
-    console.log("submit theme song 2")
     fetch('http://localhost:3001/users/' + params.userId, {
       method: "PATCH",
       headers: {
