@@ -9,11 +9,11 @@ import userReducer from './reducers/userReducer';
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-const walmart = createStore(userReducer, composeWithDevTools(applyMiddleware(thunk)))
+const store = createStore(userReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={walmart}>
+    <Provider store={store}>
       <App />
     </Provider>
   </React.StrictMode>,

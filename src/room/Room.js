@@ -5,6 +5,10 @@ import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/
 import Tile from './Tile'
 import MenuScreen from './MenuScreen'
 import piano from './characters/piano.png'
+import upperCouch from './characters/upperCouch (4).png'
+import lowerCouch from './characters/lowerCouch (2).png'
+import upperCouchSlug from './characters/upperCouchSlug.gif'
+import lowerCouchSlug from './characters/lowerCouchSlug.png'
 import bounce from './characters/bounce.gif'
 import outoforder from './characters/outoforder.png'
 import outoforder2 from './characters/outoforder2.png'
@@ -13,6 +17,7 @@ import leftDesk from './characters/ldesk.png'
 import rightDesk from './characters/rdesk.png'
 import Enoch from './characters/enochRevised.gif'
 import Tree from './characters/palmtree.png'
+import slugUp from './characters/slugUp.gif'
 import BassPluck from '../activities/keyboard/sounds/bassPluck.js'
 import { connect } from 'react-redux'
 import characters from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/room/characters/characters.js'
@@ -25,12 +30,11 @@ class Room extends Component {
     playerx: 5,
     playery: 1,
     direction: "up",
-    characterImage: upArrow,
+    characterImage: slugUp,
     sounds: BassPluck(),
     character: 0
   }
 
-  //will end up being 'this.state.downchacter' ex...redux.state{downcharacter: blahblahvlah.png}
   characterDirections =  {
     up: characters[this.state.character].up,
     left: characters[this.state.character].left,
@@ -40,44 +44,46 @@ class Room extends Component {
 
   componentDidMount(){
     this._isMounted = true
-   
     this.playback()
+    
+    window.addEventListener('keydown', this.checkKeyStroke)
+  }
   
-    window.addEventListener('keydown', (e) => {
-      switch(e.key){
-        case "w":
-          if(this.playerPosition() === "4-3" || this.playerPosition() === "5-3" || this.playerPosition() === "6-3" || this.playerPosition() === "9-3" || this.playerPosition() === "7-3" || this.playerPosition() === "8-3" || this.playerPosition() === "1-3"){
-            this.setState({direction: "up"})
-          }
-          else if(this.state.playery < 4){
-            this.setState({playery: this.state.playery + 1, direction: "up", characterImage: this.characterDirections.up})//reduxstore.upCharacter
-          }
-          break
-        case "s":
-          if(this.state.playery > 1){
-            this.setState({playery: this.state.playery - 1, direction: "down", characterImage: this.characterDirections.down})
-          }
-          break
-        case "d":
-          if(this.playerPosition() === "3-4"){
-            this.setState({direction: "right"})
-          }
-          else if(this.state.playerx < 9){
-            this.setState({playerx: this.state.playerx + 1, direction: "right", characterImage: this.characterDirections.right})
-          }
-          break
-        case "a":
-          if(this.playerPosition() === "7-4" || this.playerPosition() === "2-4"){
-            this.setState({direction: "left"})
-          }
-          else if(this.state.playerx > 1){
-            this.setState({playerx: this.state.playerx - 1, direction: "left", characterImage: this.characterDirections.left})
-          }
-          break
-        default:
-          return ""
-      }
-    })
+
+  checkKeyStroke = (e) => {
+    switch(e.key){
+      case "w":
+        if(this.playerPosition() === "4-3" || this.playerPosition() === "5-3" || this.playerPosition() === "6-3" || this.playerPosition() === "9-3" || this.playerPosition() === "7-3" || this.playerPosition() === "8-3" || this.playerPosition() === "1-3"){
+          this.setState({direction: "up"})
+        }
+        else if(this.state.playery < 4){
+          this.setState({playery: this.state.playery + 1, direction: "up", characterImage: this.characterDirections.up})//reduxstore.upCharacter
+        }
+        break
+      case "s":
+        if(this.state.playery > 1){
+          this.setState({playery: this.state.playery - 1, direction: "down", characterImage: this.characterDirections.down})
+        }
+        break
+      case "d":
+        if(this.playerPosition() === "3-4"){
+          this.setState({direction: "right"})
+        }
+        else if(this.state.playerx < 9){
+          this.setState({playerx: this.state.playerx + 1, direction: "right", characterImage: this.characterDirections.right})
+        }
+        break
+      case "a":
+        if(this.playerPosition() === "7-4" || this.playerPosition() === "2-4"){
+          this.setState({direction: "left"})
+        }
+        else if(this.state.playerx > 1){
+          this.setState({playerx: this.state.playerx - 1, direction: "left", characterImage: this.characterDirections.left})
+        }
+        break
+      default:
+        return ""
+    }
   }
 
 
@@ -89,7 +95,7 @@ class Room extends Component {
   keyboardOption = {
     name: "KeyBoard",
     link: "/keyboard",
-    instructions: "Click the keys and record to set your welcome chime!",
+    instructions: "Click on the keys and record to set your welcome chime!",
     text: "Play Your KeyBoard!"
   }
 
@@ -97,21 +103,23 @@ class Room extends Component {
     name: "Bounce!!!",
     link: '/bounce',
     instructions: "Use the direction keys to collect as many white squares as you can!",
-    text: 'Play Bounce!'
+    text: 'Play Bounce!!!'
     
   }
 
   EnochOption = {
-    name: "Please excure our mess while we work!",
+    name: "Please excuse our mess while we work!",
     link: "",
     instructions: "",
     text: '',
     user: this.props.user.name
   }
 
+
   componentWillUnmount(){
     this._isMounted = false
-    window.removeEventListener('keydown', (e) => {})
+    window.removeEventListener('keydown', this.checkKeyStroke)
+    console.log("unmounted")
   }
 
   //themeSong logic
@@ -163,7 +171,6 @@ class Room extends Component {
         <Tile tile={"7-4"} playerPosition={this.playerPosition()}  image={outoforder2} character={this.state.characterImage}/>
         <Tile tile={"8-4"} playerPosition={this.playerPosition()} image={outoforder} character={this.state.characterImage}/>
         <Tile tile={"9-4, decor"} playerPosition={this.playerPosition()} image={Tree} character={this.state.characterImage}/>
-        {/* <Tile tile={"10-4, "} playerPosition={this.playerPosition()} character={this.state.characterImage}/> */}
         <Tile tile={"1-3"} playerPosition={this.playerPosition()} image={piano} character={piano}/>
         <Tile tile={"2-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"3-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
@@ -172,8 +179,7 @@ class Room extends Component {
         <Tile tile={"6-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"7-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"8-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
-        <Tile tile={"9-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
-        {/* <Tile tile={"10-3"} playerPosition={this.playerPosition()} character={this.state.characterImage}/> */}
+        <Tile tile={"9-3"} playerPosition={this.playerPosition()} character={this.state.characterImage} image={this.playerPosition() === "9-2" || this.playerPosition() === '9-3' ? upperCouchSlug : upperCouch}/>
         <Tile tile={"1-2"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"2-2"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"3-2"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
@@ -182,8 +188,7 @@ class Room extends Component {
         <Tile tile={"6-2"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"7-2"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"8-2"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
-        <Tile tile={"9-2"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
-        {/* <Tile tile={"10-2"} playerPosition={this.playerPosition()} character={this.state.characterImage}/> */}
+        <Tile tile={"9-2"} playerPosition={this.playerPosition()} character={this.state.characterImage} image={this.playerPosition() === "9-2" || this.playerPosition() === '9-3' ? lowerCouchSlug : lowerCouch}/>
         <Tile tile={"1-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"2-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"3-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
@@ -193,7 +198,6 @@ class Room extends Component {
         <Tile tile={"7-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"8-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"9-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
-        {/* <Tile tile={"10-1"} playerPosition={this.playerPosition()} character={this.state.characterImage}/> */}
       </div>
       </div>
       </div>

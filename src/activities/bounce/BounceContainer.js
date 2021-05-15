@@ -11,7 +11,8 @@ class BounceContainer extends Component {
   state = {
     score: -1,
     time: 0,
-    canSendScore: true
+    canSendScore: true,
+    inc: 0
   }
 
   addPoint = () => {
@@ -34,20 +35,10 @@ class BounceContainer extends Component {
     if(this.state.score > 0 && this.state.time <= 1 && this.state.canSendScore === true){
       console.log("Game Over")
       console.log(this.state.score)
-      // this.sendScoresToRedux()
       this.dispatchScore()
       this.setState({canSendScore: false})
     }
   }
-
-  // sendScoresToRedux = () => {
-  //   let score = {
-  //       game: "Bounce",
-  //       gameId: 1,
-  //       score: this.state.score
-  //   } 
-  //   // this.props.addScore(score)
-  // }
 
   dispatchScore = () => {
     let params = {
@@ -56,9 +47,9 @@ class BounceContainer extends Component {
       userId: this.props.user.id,
       score: this.state.score
     }
-    
+    console.log("a")
     this.props.submitScore(params)
-    console.log("inside bounce container")
+    console.log("b")
   }
 
   sortedScores = () => {
@@ -66,52 +57,52 @@ class BounceContainer extends Component {
   }
 
   renderScores = () => {
-    return this.sortedScores().map((score, index) => <Score key={index} score={score}/>)
+    return this.sortedScores().map((score, index) => <Score key={index} score={score} inc={this.state.inc}/>)
   }
+
+  handleChange = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
+
   
   
   render() {
-    // console.log(this.state)
-    // console.log(this.props)
-    console.log(this.sortedScores())
     if(this.state.time <= 0){
-      return(
-      <div className="tv-frame">
-      <div className="tv-div">
-        <div>
-          <br/>
-        <h2>Bounce</h2>
-        {this.state.score > 0 ? <h2>Your Score: {this.state.score}</h2> : ""} 
-        <button onClick={this.addTime}>Start Game</button>
-        <div className="scroll">
-          <h2>High Scores</h2>
-          {this.renderScores()}
+      return (
+        <div className="tv-frame">
+          <div className="tv-div">
+            <div>
+              <br />
+              <input name="inc" value={this.state.inc} onChange={this.handleChange}></input>
+              <h2>Bounce!!!</h2>
+              {this.state.score > 0 ? <h2>Your Score: {this.state.score}</h2> : ""}
+              <button onClick={this.addTime}>Start Game</button>
+              <div className="scroll">
+                <h2>High Scores</h2>
+                {this.renderScores()}
+              </div>
+            </div>
+          </div>
+          <Buttons />
         </div>
-        </div>
-      </div>
-      <Buttons/>
-      </div>
-     
-
-
       )
     }
     else{
-    return (
-      <div className="tv-frame">
-      <div className="tv-div">
-      <div>
-        {this.state.time > 0 ? <h3>Time: {this.state.time} </h3> : ""}
-        <h3>Score: {this.state.score}</h3>
+      return (
+        <div className="tv-frame">
+          <div className="tv-div">
+            <div>
+              {this.state.time > 0 ? <h3>Time: {this.state.time} </h3> : ""}
+              <h3>Score: {this.state.score}</h3>
 
-        {this.state.time > 0 ?  <Bounce score={this.state.score} addPoint={this.addPoint} countDown={this.countDown} time={this.state.time}/> : "" }
-        
-      </div>
-      </div>
-      <Buttons />
-      </div>
+              {this.state.time > 0 ? <Bounce score={this.state.score} addPoint={this.addPoint} countDown={this.countDown} time={this.state.time} /> : ""}
 
-    )
+            </div>
+          </div>
+          <Buttons />
+        </div>
+
+      )
     }
   }
 }
@@ -123,13 +114,5 @@ let mapStateToProps = (state) => {
   }
 }
 
-// let mapDispatchToProps = (dispatch) => {
-//   return { 
-//     addScore: (score) => dispatch({ type: "ADD_SCORE", payload: score,
-//     // submitScore: (score) => dispatch(submitScore(score))
-//     })
-//   }
-// }
 
-// score object ex: {user: "user.name", game: "bounce", score: this.state.score}}
 export default connect(mapStateToProps, { submitScore })(BounceContainer)

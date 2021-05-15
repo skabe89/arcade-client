@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from 'react'
 export default function Bounce(props) {
   const canvasRef = useRef()
   let loopContinue = true
-  let score = props.score
   let timer = props.time
  
 
@@ -32,7 +31,6 @@ useEffect(() => {
   
   function update(){
     player.update()
-    // Laserbeam.all.forEach(laser => laser.update())
   }
   
   function draw(){
@@ -42,7 +40,6 @@ useEffect(() => {
     if(grub.alive){
       grub.draw()
     }
-    // console.log("Hello World")
   }
 
   
@@ -64,7 +61,6 @@ useEffect(() => {
       draw()
       animate(gameLoop)
       checkTime()
-      // console.log(timer)
       if(timer <= 1){
         loopContinue = false
         props.countDown()
@@ -93,9 +89,6 @@ useEffect(() => {
     animate(gameLoop);
   }
   
-  //   document.addEventListener('DOMContentLoaded', function() {
-  //   setup()
-  //  })
   
    class Player {
   
@@ -107,8 +100,8 @@ useEffect(() => {
       this.canSlap = true
       this.width = 20
       this.height = 20
-      this.xspeed = 0
-      this.yspeed = 0
+      this.xspeed = 4
+      this.yspeed = 4
   
       this.addMovement = this.addMovement.bind(this)
     }
@@ -137,13 +130,11 @@ useEffect(() => {
           this.direction.down = true
           break
         case 65:
-          // console.log("Left")
           this.xspeed = -`${speedX}`
           this.resetDirections()
           this.direction.left = true
           break;
         case 68:
-          // console.log("Right")
           this.xspeed = speedX
           this.resetDirections()
           this.direction.right = true
@@ -237,7 +228,6 @@ useEffect(() => {
   return (
     
     <div>
-      {/* {console.log(props)} */}
       <canvas id="canvas" ref={canvasRef} height="600px" width="810px"></canvas>
     </div>
    

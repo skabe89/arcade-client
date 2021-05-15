@@ -42,9 +42,16 @@
 
 button, input[type="button"], input[type="submit"]{
   font-family: 'Press Start 2P';
-  height: 30px;
+  font-size: 28px; 
+  height: 38px;
 
 }
+
+input[type='text'] { 
+    font-size: 28px; 
+    font-family: 'Press Start 2P'; 
+}
+
 
 .tv-div{
   margin: auto;
@@ -70,6 +77,9 @@ button, input[type="button"], input[type="submit"]{
   /* padding-top: 30px; */
   background-color: rgb(80, 78, 78);
   border-radius: 10px;
+  border-style: solid;
+  border-width: 4px;
+  border-color: rgb(51, 50, 50);
 }
 
 .scroll{

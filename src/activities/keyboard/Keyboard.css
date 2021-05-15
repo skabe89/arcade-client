@@ -1,4 +1,13 @@
 /* keyboard Styles */
+
+button, input[type="button"], input[type="submit"]{
+  font-family: 'Press Start 2P';
+  font-size: 20px; 
+  height: 30px;
+
+}
+
+
 .push{
   height: 50px;
   width: 810px;
