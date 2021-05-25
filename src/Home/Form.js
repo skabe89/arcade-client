@@ -22,12 +22,10 @@ class Form extends Component {
     console.log(e)
     e.preventDefault()
     this.props.getUser(this.state.name)
-    // console.log(this.state)
   }
 
   resetName = () => {
     this.setState({name: ""})
-    // console.log(this.state)
   }
 
   render() {
@@ -41,7 +39,6 @@ class Form extends Component {
             <br/>
             <input type="submit" value="SUBMIT NAME" />
         </form>
-        {/* <h1>{this.props.name}</h1> */}
       </div>
     )
   }

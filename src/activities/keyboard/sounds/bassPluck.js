@@ -12,7 +12,7 @@ import FSharp from './bassPluck/FSharp.mp3'
 import G from './bassPluck/G.mp3'
 import GSharp from './bassPluck/GSharp.mp3'
 
-//onHover the record button can have a meny that pops up similar to the game menu in the arcade that will give instructions. toggle the hints on and off
+//onHover the record button can have a menu that pops up similar to the game menu in the arcade that will give instructions. toggle the hints on and off
 //identical file for the other sound samples, different import file only
 
 const sounds = () => {

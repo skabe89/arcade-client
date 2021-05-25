@@ -6,7 +6,7 @@ import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/
 import './Keyboard.css'
 import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
 import BassPluck from './sounds/bassPluck'
-// import Piano from './sounds/piano'
+import Piano from './sounds/piano'
 import { connect } from 'react-redux'
 import { submitThemeSong } from "/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js"
 
@@ -16,8 +16,9 @@ class KeyboardContainer extends Component {
 
 state = {
   loop: "",
-  sounds: BassPluck()
+  sounds: Piano()
 }
+
 
 
 pressed = ""
