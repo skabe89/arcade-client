@@ -16,13 +16,19 @@ class KeyboardContainer extends Component {
 
 state = {
   loop: "",
-  sounds: Piano()
+  soundStyle: "bass",
+  sounds: BassPluck()
 }
 
 
 
 pressed = ""
 pressedInteger = 24
+
+changeSound = () => {
+  console.log(this.state)
+  this.state.soundStyle === "bass" ? this.setState({soundStyle: "piano", sounds: Piano()}) : this.setState({soundStyle: "bass", sounds: BassPluck()})
+}
 
 
 playNote(note){
@@ -39,7 +45,6 @@ playNoteInteger(integer){
       case "c":
         this.pressedInteger = 0
         this.playNoteInteger(0)
-        console.log(this.pressedInteger)
         break;
       case "cSharp":
         console.log("this is the cSharp note")
@@ -224,6 +229,7 @@ playNoteInteger(integer){
         </div>
         <button onClick={this.playFromProps}>Play Current Chime</button>
         <button onClick={this.setAsTheme}>Set recording as your Theme Chime</button> 
+        <button onClick={this.changeSound}>Change Sounds</button> 
       </div>
         <Buttons />
       </div>
