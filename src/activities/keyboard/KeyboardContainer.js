@@ -213,6 +213,7 @@ playNoteInteger(integer){
         <button onClick={this.startRecording}>Record</button>
         <button onClick={this.playback}>Play Back Recording</button>
         <br/>
+        <br/>
         <div className="keyboard" >
             <Key keyPress={this.keyPress} note="c"/>
             <BlackKey keyPress={this.keyPress} note="cSharp" /> 
@@ -227,6 +228,8 @@ playNoteInteger(integer){
             <BlackKey keyPress={this.keyPress} note="aSharp" /> 
             <Key keyPress={this.keyPress} note="b"/> 
         </div>
+        <br/>
+        <br/>
         <button onClick={this.playFromProps}>Play Current Chime</button>
         <button onClick={this.setAsTheme}>Set recording as your Theme Chime</button> 
         <button onClick={this.changeSound}>Change Sounds</button> 
