@@ -16,7 +16,9 @@ export default function MenuScreen(props) {
       <h5>{props.option.instructions}</h5>
       </div>
       <br/>
+      {props.messageOption ? <button onClick={() => {props.messageOption()}}>Open Message Board</button> : null}
       <Link to={props.option.link}>{props.option.text}</Link>
+      {console.log(props)}
     </div>
   )
 }

@@ -33,7 +33,8 @@ class Room extends Component {
     direction: "up",
     characterImage: slugUp,
     sounds: BassPluck(),
-    character: 0
+    character: 0,
+    messageBoard: false
   }
 
   characterDirections =  {
@@ -151,6 +152,10 @@ class Room extends Component {
     return arrInt
   }
 
+  changeMessageBoard = () => {
+    this.setState({messageBoard: !this.state.messageBoard})
+  }
+
 
 
   render() {
@@ -160,7 +165,7 @@ class Room extends Component {
       <div className="tv-div">
       <div className="block">
       <div className="tileContainer">
-        {this.playerPosition() === "5-3" ? <MenuScreen option={this.EnochOption}/> : ""}
+        {this.playerPosition() === "5-3" ? this.state.messageBoard === true ? <MessageBoard messageOption={this.changeMessageBoard}/> : <MenuScreen option={this.EnochOption} messageOption={this.changeMessageBoard}/> : ""}
         {this.playerPosition() === "3-4" ? <MenuScreen option={ this.bounceOption }/> : ""}
         {this.playerPosition() === "1-3" ? <MenuScreen option={ this.keyboardOption } /> : ""}
         {this.playerPosition() === "1-2" ? <MessageBoard /> : ""}
