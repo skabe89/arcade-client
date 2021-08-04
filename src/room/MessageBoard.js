@@ -14,6 +14,7 @@ export default function MessageBoard() {
 
   return (
     <div className="menu">
+      <h2>Messages</h2>
       {mapMessages()}
     </div>
   )
