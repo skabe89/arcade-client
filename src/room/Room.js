@@ -21,6 +21,7 @@ import slugUp from './characters/slugUp.gif'
 import BassPluck from '../activities/keyboard/sounds/bassPluck.js'
 import { connect } from 'react-redux'
 import characters from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/room/characters/characters.js'
+import MessageBoard from './MessageBoard'
 
 class Room extends Component {
 
@@ -162,6 +163,7 @@ class Room extends Component {
         {this.playerPosition() === "5-3" ? <MenuScreen option={this.EnochOption}/> : ""}
         {this.playerPosition() === "3-4" ? <MenuScreen option={ this.bounceOption }/> : ""}
         {this.playerPosition() === "1-3" ? <MenuScreen option={ this.keyboardOption } /> : ""}
+        {this.playerPosition() === "1-2" ? <MessageBoard /> : ""}
         <Tile tile={"1-4, decor"} playerPosition={this.playerPosition()} image={Tree}/>
         <Tile tile={"2-4"} playerPosition={this.playerPosition()} character={this.state.characterImage}/>
         <Tile tile={"3-4"} playerPosition={this.playerPosition()} image={bounce} character={bounce}/>
