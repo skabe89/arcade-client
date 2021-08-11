@@ -1,5 +1,7 @@
 import React,  {useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
 import Message from './Message'
+import { getMessages } from '../actions'
 
 export default function MessageBoard(props) {
 
@@ -8,8 +10,10 @@ export default function MessageBoard(props) {
     {userName: "Frog", note: "cool!"}
   ])
 
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    fetchMessages()
+    dispatch(getMessages())
   }, [])  
 
   const fetchMessages = () => {

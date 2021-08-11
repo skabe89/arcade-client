@@ -2,7 +2,8 @@ const initialState = {
   user: {},
   scores: [],
   loading: true,
-  scoresFetched: false
+  scoresFetched: false,
+  messages: []
 }
 
 const userReducer = (state = initialState, action) => {
@@ -47,6 +48,13 @@ const userReducer = (state = initialState, action) => {
         ...state,
         loading: false,
         scores: action.payload
+      }
+    case 'SET_MESSAGES':
+      console.log(state)
+      return {
+        ...state,
+        loading: false,
+        messages: action.payload
       }
     default:
       return state

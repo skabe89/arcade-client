@@ -9,7 +9,6 @@ export const getScores = () => {
 }
 
 export const submitScore = (score) => {
-  
   return (dispatch) => {
     fetch('http://localhost:3001/scores', {
       method: "POST",
@@ -23,6 +22,16 @@ export const submitScore = (score) => {
       .then(score => {
         dispatch({ type: "ADD_SCORE", payload: score })
       })
+  }
+}
+
+export const getMessages = () => {
+  console.log("dispatching messages")
+  return (dispatch) => {
+    dispatch({ type: "LOADING" })
+    fetch("http://localhost:3001/messages")
+      .then(resp => resp.json())
+      .then(data => dispatch({ type: "SET_MESSAGES", payload: data }))
   }
 }
 
