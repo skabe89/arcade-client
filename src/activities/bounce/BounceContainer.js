@@ -12,7 +12,6 @@ class BounceContainer extends Component {
     score: -1,
     time: 0,
     canSendScore: true,
-    inc: 0
   }
 
   addPoint = () => {
@@ -73,7 +72,6 @@ class BounceContainer extends Component {
           <div className="tv-div">
             <div>
               <br />
-              <input name="inc" value={this.state.inc} onChange={this.handleChange}></input>
               <h2>Bounce!!!</h2>
               {this.state.score > 0 ? <h2>Your Score: {this.state.score}</h2> : ""}
               <button onClick={this.addTime}>Start Game</button>
