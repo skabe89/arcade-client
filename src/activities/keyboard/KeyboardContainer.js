@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 // import KeyController from './KeyboardControls'
 import BlackKey from './BlackKey'
 import Key from './Key'
-import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/Home/Buttons.js'
+import Buttons from '../../Home/Buttons.js'
 import './Keyboard.css'
-import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
+import '../../App.css'
 import BassPluck from './sounds/bassPluck'
 import Piano from './sounds/piano'
 import { connect } from 'react-redux'
-import { submitThemeSong } from "/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js"
+import { submitThemeSong } from "../../actions/index.js"
 
 
 
