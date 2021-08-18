@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getScores } from '../actions/index'
-import { findOrCreateUser } from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js'
+import { findOrCreateUser } from '../actions/index.js'
 
 class Form extends Component {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Room.css'
-import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
-import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/Home/Buttons.js'
+import '../App.css'
+import Buttons from '../Home/Buttons.js'
 import Tile from './Tile'
 import MenuScreen from './MenuScreen'
 import piano from './characters/piano.png'
@@ -20,7 +20,7 @@ import Tree from './characters/palmtree.png'
 import slugUp from './characters/slugUp.gif'
 import BassPluck from '../activities/keyboard/sounds/bassPluck.js'
 import { connect } from 'react-redux'
-import characters from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/room/characters/characters.js'
+import characters from './characters/characters.js'
 import MessageBoard from './MessageBoard'
 
 class Room extends Component {

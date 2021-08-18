@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Form from './Form'
 import {Link} from "react-router-dom";
 import { connect } from 'react-redux'
-import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
+import '../App.css'
 
 class Home extends Component {
 

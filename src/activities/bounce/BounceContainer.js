@@ -2,9 +2,9 @@ import React, { Component } from 'react'
 import Bounce from './Bounce'
 import Score from './Score'
 import { connect } from 'react-redux'
-import { submitScore } from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/actions/index.js'
-import '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/App.css'
-import Buttons from '/home/skabe/Development/code/Module_5/arcade/arcade-client/src/Home/Buttons.js'
+import { submitScore } from '../../actions/index.js'
+import '../../App.css'
+import Buttons from '../../Home/Buttons'
 
 class BounceContainer extends Component {
   
