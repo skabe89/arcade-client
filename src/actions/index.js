@@ -1,8 +1,9 @@
+const baseURL = "arcade-api.herokuapp.com"
 
 export const getScores = () => {
   return dispatch => {
     dispatch({ type: "LOADING" })
-    fetch("http://localhost:3001/scores")
+    fetch(`${baseURL}/scores`)
       .then(resp => resp.json())
       .then(data => dispatch({ type: "SET_SCORES", payload: data }))
   }
@@ -10,7 +11,7 @@ export const getScores = () => {
 
 export const submitScore = (score) => {
   return (dispatch) => {
-    fetch('http://localhost:3001/scores', {
+    fetch(`${baseURL}/scores`, {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -29,7 +30,7 @@ export const getMessages = () => {
   console.log("dispatching messages")
   return (dispatch) => {
     dispatch({ type: "LOADING" })
-    fetch("http://localhost:3001/messages")
+    fetch(`${baseURL}/messages`)
       .then(resp => resp.json())
       .then(data => dispatch({ type: "SET_MESSAGES", payload: data }))
   }
@@ -38,7 +39,7 @@ export const getMessages = () => {
 export const findOrCreateUser = (username) => {
   return (dispatch) => {
     console.log("user-2")
-    fetch('http://localhost:3001/users', {
+    fetch(`${baseURL}/users`, {
       method: "POST",
       headers: {
         "Accept": "application/json",
@@ -56,7 +57,7 @@ export const findOrCreateUser = (username) => {
 export const submitThemeSong = (params) => {
 
   return (dispatch) => {
-    fetch('http://localhost:3001/users/' + params.userId, {
+    fetch(`${baseURL}/users/` + params.userId, {
       method: "PATCH",
       headers: {
         "Accept": "application/json",
