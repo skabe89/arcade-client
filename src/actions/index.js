@@ -38,7 +38,7 @@ export const getMessages = () => {
 
 export const findOrCreateUser = (username) => {
   return (dispatch) => {
-    console.log("user-2")
+    console.log(`${baseURL}/users`)
     fetch(`${baseURL}/users`, {
       method: "POST",
       headers: {
@@ -57,7 +57,7 @@ export const findOrCreateUser = (username) => {
 export const submitThemeSong = (params) => {
 
   return (dispatch) => {
-    fetch(`${baseURL}/users/` + params.userId, {
+    fetch(`${baseURL}/users` + params.userId, {
       method: "PATCH",
       headers: {
         "Accept": "application/json",
