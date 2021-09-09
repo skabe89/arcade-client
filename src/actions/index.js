@@ -1,4 +1,4 @@
-const baseURL = "arcade-api.herokuapp.com"
+const baseURL = "https://arcade-api.herokuapp.com"
 
 export const getScores = () => {
   return dispatch => {
@@ -57,7 +57,7 @@ export const findOrCreateUser = (username) => {
 export const submitThemeSong = (params) => {
 
   return (dispatch) => {
-    fetch(`${baseURL}/users/` + params.userId, {
+    fetch(`${baseURL}/users/` + params.id, {
       method: "PATCH",
       headers: {
         "Accept": "application/json",
