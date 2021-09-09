@@ -182,13 +182,13 @@ playNoteInteger(integer){
   }
 
   playFromProps = () => {
+    console.log(this.props)
     if(this.props.user.song.length > 2){
     let revived = this.bringBackLoop(this.props.user.song)
     for(let i = 0; i < revived.length; i++){
       this.currrentlyPlaying = true
       setTimeout(() => {
         console.log(revived[i])
-        console.log(this.props)
         if(revived[i] !== 24){
           this.playNoteInteger(revived[i])
           console.log(revived[i])
