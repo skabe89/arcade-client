@@ -57,6 +57,7 @@ export const findOrCreateUser = (username) => {
 export const submitThemeSong = (params) => {
 
   return (dispatch) => {
+    console.log(params)
     fetch(`${baseURL}/users` + params.userId, {
       method: "PATCH",
       headers: {
