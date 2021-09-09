@@ -16,8 +16,11 @@ class BounceContainer extends Component {
 
   addPoint = () => {
     this.setState({score: this.state.score + 1})
-    if(this.state.score > this.sortedScores()[0].score){
-      console.log("High Score!!!")
+    console.log(this.state)
+    if(this.state.score){
+      if(this.state.score > this.sortedScores()[0].score){
+        console.log("High Score!!!")
+      }
     }
   }
 
