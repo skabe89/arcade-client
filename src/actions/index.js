@@ -58,7 +58,7 @@ export const submitThemeSong = (params) => {
 
   return (dispatch) => {
     console.log(params)
-    fetch(`${baseURL}/users` + params.id, {
+    fetch(`${baseURL}/users/` + params.id, {
       method: "PATCH",
       headers: {
         "Accept": "application/json",
