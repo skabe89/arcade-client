@@ -26,7 +26,6 @@ pressed = ""
 pressedInteger = 24
 
 changeSound = () => {
-  console.log(this.state)
   this.state.soundStyle === "bass" ? this.setState({soundStyle: "piano", sounds: Piano()}) : this.setState({soundStyle: "bass", sounds: BassPluck()})
 }
 
@@ -109,12 +108,10 @@ playNoteInteger(integer){
         if(recordLoop.length === 100){
           this.stopRecording()
         }
-        console.log(this.pressedInteger)
         // recordLoop.push(this.pressed)
         recordLoop.push(this.pressedInteger)
         this.pressed = ""
         this.pressedInteger = 24
-        console.log(recordLoop)
       }, 50)
 
    
@@ -141,7 +138,6 @@ playNoteInteger(integer){
 
   playback = () => {
     if(this.state.loop.length > 2){
-      console.log(this.state.loop)
     let revived = this.state.loop
     for(let i = 0; i < revived.length; i++){
       this.currrentlyPlaying = true
@@ -172,7 +168,6 @@ playNoteInteger(integer){
 
 
   stringedLoop = (stringloop) => {
-    console.log(stringloop)
     let text = "";
     stringloop.forEach(i => text = text +`${i} `)
     return text
@@ -193,6 +188,7 @@ playNoteInteger(integer){
       this.currrentlyPlaying = true
       setTimeout(() => {
         console.log(revived[i])
+        console.log(this.props)
         if(revived[i] !== 24){
           this.playNoteInteger(revived[i])
           console.log(revived[i])
