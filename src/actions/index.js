@@ -1,4 +1,4 @@
-const baseURL = "arcade-api.herokuapp.com"
+const baseURL = "https://arcade-api.herokuapp.com"
 
 export const getScores = () => {
   return dispatch => {
