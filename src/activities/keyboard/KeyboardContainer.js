@@ -164,6 +164,7 @@ playNoteInteger(integer){
       id: this.props.user.id,
       song: this.stringedLoop(this.state.loop)
     }
+    console.log(params)
     this.props.submitThemeSong(params)
     console.log(this.stringedLoop(this.state.loop))
     }
